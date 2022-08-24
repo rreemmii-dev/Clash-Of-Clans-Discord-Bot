@@ -26,8 +26,8 @@ If you want to test the bot, you can [add it to your server](https://rreemmii-de
 ## Installation + Setup
 
 ```shell
-# Clone the repository:
-git clone https://github.com/rreemmii-dev/Clash-Of-Clans-Discord-Bot.git
+# Clone the main branch:
+git clone https://github.com/rreemmii-dev/Clash-Of-Clans-Discord-Bot.git --single-branch
 
 # Download the libraries:
 pip install -r Clash-Of-Clans-Discord-Bot\requirements.txt
