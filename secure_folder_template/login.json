@@ -1,0 +1,25 @@
+{
+    "__Comment": "Check the README.md file to get help to fill in this file, in the Installation part.",
+    
+    "discord": {
+        "main": "",
+        "beta": ""
+    },
+    "clash_of_clans": {
+        "main": {
+            "email": "",
+            "password": ""
+        },
+        "beta": {
+            "email": "",
+            "password": ""
+        }
+    },
+    "top_gg": {
+        "token": "",
+        "authorization": ""
+    },
+    "perspective_api": {
+        "token": ""
+    }
+}

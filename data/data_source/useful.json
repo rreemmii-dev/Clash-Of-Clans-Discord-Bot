@@ -1,0 +1,10 @@
+{
+    "required_permissions": ["manage_roles", "manage_channels", "manage_webhooks", "view_channel", "send_messages", "send_messages_in_threads", "embed_links", "attach_files", "read_message_history", "external_emojis"],
+
+    "max_th_lvl": 14,
+    "th_buildings_categories": ["Army", "Defenses", "Resources", "Traps"],
+    "league_trophies": {"Unranked League": 0, "bronze League": 400, "Silver League": 800, "Gold League": 1400, "Crystal League": 2000, "Master League": 2600, "Champion League": 3200, "Titan League": 4100, "Legend League": 5000},
+
+    "max_bh_lvl": 9,
+    "bh_buildings_categories": ["Army", "Defenses", "Resources", "Traps", "Special"]
+}
