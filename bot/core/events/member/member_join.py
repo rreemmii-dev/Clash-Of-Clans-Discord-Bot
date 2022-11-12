@@ -8,7 +8,7 @@ from bot.functions import create_embed, escape_markdown
 from data.useful import Ids
 
 
-async def member_join(self: discord.Client, member: discord.Member):
+async def member_join(self: discord.AutoShardedClient, member: discord.Member):
     if member.guild.id == Ids["Support_server"]:
         if Ids["Member_role"] and not member.bot:
             member_role = member.guild.get_role(Ids["Member_role"])

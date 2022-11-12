@@ -10,7 +10,6 @@ import time
 
 import discord
 import flask
-
 from bot.emojis import Emojis
 from bot.functions import create_embed
 from data.config import Config
@@ -18,7 +17,7 @@ from data.secure_folder import Login
 from data.useful import Ids
 
 
-async def ready(self: discord.Client):
+async def ready(self: discord.AutoShardedClient):
     print("Beginning of the preparation of the bot")
 
     if Config["main_bot"]:
@@ -67,7 +66,7 @@ async def ready(self: discord.Client):
             loop = asyncio.new_event_loop()
             asyncio.set_event_loop(loop)
 
-            class WeeklyStatsBot(discord.Client):
+            class WeeklyStatsBot(discord.AutoShardedClient):
                 def __init__(self):
                     super().__init__(intents=discord.Intents.default())
 
@@ -115,7 +114,7 @@ async def ready(self: discord.Client):
             loop = asyncio.new_event_loop()
             asyncio.set_event_loop(loop)
 
-            class MonthlyUsersBot(discord.Client):
+            class MonthlyUsersBot(discord.AutoShardedClient):
 
                 def __init__(self):
                     super().__init__(intents=discord.Intents.default())
@@ -173,7 +172,7 @@ async def ready(self: discord.Client):
             loop = asyncio.new_event_loop()
             asyncio.set_event_loop(loop)
 
-            class BackupSecureFolderBot(discord.Client):
+            class BackupSecureFolderBot(discord.AutoShardedClient):
 
                 def __init__(self):
                     super().__init__(intents=discord.Intents.default())
@@ -210,7 +209,7 @@ async def ready(self: discord.Client):
                 loop = asyncio.new_event_loop()
                 asyncio.set_event_loop(loop)
 
-                class TopggWebhooksBot(discord.Client):
+                class TopggWebhooksBot(discord.AutoShardedClient):
                     def __init__(self):
                         super().__init__(intents=discord.Intents.default())
 
@@ -262,7 +261,7 @@ async def ready(self: discord.Client):
                 loop = asyncio.new_event_loop()
                 asyncio.set_event_loop(loop)
 
-                class GitHubWebhooksBot(discord.Client):
+                class GitHubWebhooksBot(discord.AutoShardedClient):
                     def __init__(self):
                         super().__init__(intents=discord.Intents.default())
 

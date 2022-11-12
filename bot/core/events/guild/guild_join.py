@@ -7,7 +7,7 @@ from data.useful import Ids
 from data.views import ComponentView
 
 
-async def guild_join(self: discord.Client, guild: discord.Guild):
+async def guild_join(self: discord.AutoShardedClient, guild: discord.Guild):
     if Config["top_gg"]:
         from bot.apis_clients.top_gg import Dbl_client
         await Dbl_client.post_guild_count(guild_count=len(self.guilds))

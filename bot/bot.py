@@ -13,7 +13,7 @@ from bot.core.events.message.raw_message_edit import raw_message_edit
 from bot.core.events.message.message import on_message
 
 
-class Bot(discord.Client):
+class Bot(discord.AutoShardedClient):
     def __init__(self, intents: discord.Intents):
         super().__init__(intents=intents, chunk_guilds_at_startup=False)
         self.id = None
