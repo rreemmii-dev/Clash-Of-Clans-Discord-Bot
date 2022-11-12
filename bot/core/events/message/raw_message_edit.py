@@ -8,7 +8,7 @@ from data.secure_folder import Login
 from data.useful import Ids
 
 
-async def raw_message_edit(self: discord.Client, payload: discord.RawMessageUpdateEvent):
+async def raw_message_edit(self: discord.AutoShardedClient, payload: discord.RawMessageUpdateEvent):
     if not Config["message_content_intent"]:
         return
 

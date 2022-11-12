@@ -2,6 +2,7 @@
 By adding Clash INFO ("bot") to your server, you agree you have read, understood and accepted the Terms. You are also responsible for informing the members of your server about the Terms.
 If you disagree with any of these terms, you are prohibited from accessing our services.
 
+
 ## Table of Contents
 - [Age requirements and responsibility of guardians](#age-requirements-and-responsibility-of-guardians)
 - [Restriction on use](#restriction-on-use)
@@ -9,6 +10,7 @@ If you disagree with any of these terms, you are prohibited from accessing our s
 - [Service "as is"](#service-as-is)
 - [Limitations](#limitations)
 - [Changes to the Terms](#changes-to-the-terms)
+
 
 ## Age requirements and responsibility of guardians
 
@@ -38,4 +40,4 @@ We will not be responsible for any damages that may arise from the use or inabil
 
 ## Changes to the Terms
 
-We may change these Terms of Service in the future. Whenever we make a significant change to these Terms of Service, we will let you know by the bot support server. When you use the bot, you accept the latest Terms of Service currently in effect.
+We may change these Terms of Service in the future. Whenever we make a significant change to these Terms of Service, we will let you know through the bot support server. When you use the bot, you accept the latest Terms of Service currently in effect.

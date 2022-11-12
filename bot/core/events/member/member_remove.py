@@ -6,7 +6,7 @@ from bot.functions import create_embed, escape_markdown
 from data.useful import Ids
 
 
-async def member_remove(self: discord.Client, member: discord.Member):
+async def member_remove(self: discord.AutoShardedClient, member: discord.Member):
     if member.guild.id == Ids["Support_server"]:
         users = 0
         for m in member.guild.members:

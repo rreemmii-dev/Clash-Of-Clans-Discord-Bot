@@ -5,7 +5,7 @@ from data.config import Config
 from data.useful import Ids
 
 
-async def guild_remove(self: discord.Client, guild: discord.Guild):
+async def guild_remove(self: discord.AutoShardedClient, guild: discord.Guild):
     if Config["top_gg"]:
         from bot.apis_clients.top_gg import Dbl_client
         await Dbl_client.post_guild_count(guild_count=len(self.guilds))
