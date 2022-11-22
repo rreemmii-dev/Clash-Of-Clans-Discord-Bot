@@ -1,7 +1,6 @@
 coc.py==2.2.1
-discord.py==2.0.1
+discord.py==2.1.0
 Flask==2.2.2
-google-api-python-client==2.65.0
 nest_asyncio==1.5.6
 Pillow==9.2.0
 requests

@@ -13,7 +13,7 @@ async def download_emojis(interaction: discord.Interaction, recreate_emojis_zip:
         if os.path.exists("Emojis_save"):
             shutil.rmtree("Emojis_save")
         os.mkdir("Emojis_save")
-        emojis_servers_id = [Ids["Emojis_coc_players_related_server"], Ids["Emojis_coc_troops_server"], Ids["Emojis_coc_clans_related_server"], Ids["Emojis_coc_remains_server"], Ids["Emojis_discord_main_server"], Ids["Emojis_general_remains_server"]]
+        emojis_servers_id = [Ids["Emojis_coc_players_related_server"], Ids["Emojis_coc_troops_server"], Ids["Emojis_coc_heroes_server"], Ids["Emojis_coc_clans_related_server"], Ids["Emojis_coc_remains_server"], Ids["Emojis_discord_main_server"], Ids["Emojis_general_remains_server"]]
         forbidden_characters = ["<", ">", ":", "“", "/", "\\", "|", "?", "*"]
         for guild_id in emojis_servers_id:
             guild = interaction.client.get_guild(guild_id)
