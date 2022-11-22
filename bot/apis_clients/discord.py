@@ -8,8 +8,6 @@ from data.useful import Ids
 
 intents = discord.Intents.default()
 intents.members = True  # Members Intent is required!
-if Config["message_content_intent"]:
-    intents.message_content = True
 Clash_info = Bot(intents=intents)
 
 if Config["main_bot"]:
