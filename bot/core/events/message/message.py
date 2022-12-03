@@ -4,7 +4,6 @@ import discord
 import requests
 
 from bot.functions import create_embed
-from data.config import Config
 from data.useful import Ids
 
 
@@ -26,9 +25,6 @@ async def on_message(self: discord.AutoShardedClient, message: discord.Message):
                     if message.content == "":
                         message.content = " "
                 await channel.send(f"```{message.content}``` from:\n{message.author} (`{message.author.id}`)\nMessage_id: `{message.id}`", files=files)
-        return
-
-    if not Config["message_content_intent"]:
         return
 
     if message.author.id in Ids["Creators"]:
