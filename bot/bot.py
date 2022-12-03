@@ -9,7 +9,6 @@ from bot.core.events.guild.guild_remove import guild_remove
 from bot.core.events.member.member_join import member_join
 from bot.core.events.member.member_remove import member_remove
 
-from bot.core.events.message.raw_message_edit import raw_message_edit
 from bot.core.events.message.message import on_message
 
 
@@ -38,10 +37,6 @@ class Bot(discord.AutoShardedClient):
 
     async def on_member_remove(self, member: discord.Member):
         await member_remove(self, member)
-        return
-
-    async def on_raw_message_edit(self, payload: discord.RawMessageUpdateEvent):
-        await raw_message_edit(self, payload)
         return
 
     async def on_message(self, message: discord.Message):
