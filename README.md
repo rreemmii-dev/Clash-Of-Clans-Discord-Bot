@@ -182,6 +182,7 @@ python Clash-Of-Clans-Discord-Bot\main.py
 |  |  |  ├─ bot_info.py
 |  |  |  ├─ buildings_bh.py
 |  |  |  ├─ buildings_th.py
+|  |  |  ├─ clan_current_war.py
 |  |  |  ├─ clan_donations.py
 |  |  |  ├─ clan_info.py
 |  |  |  ├─ clan_members.py
