@@ -5,6 +5,6 @@
     "th_buildings_categories": ["Army", "Defenses", "Resources", "Traps"],
     "league_trophies": {"Unranked League": 0, "bronze League": 400, "Silver League": 800, "Gold League": 1400, "Crystal League": 2000, "Master League": 2600, "Champion League": 3200, "Titan League": 4100, "Legend League": 5000},
 
-    "max_bh_lvl": 9,
+    "max_bh_lvl": 10,
     "bh_buildings_categories": ["Army", "Defenses", "Resources", "Traps", "Special"]
 }

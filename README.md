@@ -152,7 +152,7 @@ python Clash-Of-Clans-Discord-Bot\main.py
 |  |  |  ├─ select_menus/
 |  |  |  |  ├─ auto_roles.py
 |  |  |  |  ├─ change_bh_lvl.py
-|  |  |  |  ├─ change_clan_super_troops_activated.py
+|  |  |  |  ├─ change_clan_super_troops.py
 |  |  |  |  ├─ change_player_info_page.py
 |  |  |  |  ├─ change_search_clan.py
 |  |  |  |  └─ change_th_lvl.py
@@ -164,8 +164,7 @@ python Clash-Of-Clans-Discord-Bot\main.py
 |  |  |  |  ├─ member_join.py
 |  |  |  |  └─ member_remove.py
 |  |  |  ├─ message/
-|  |  |  |  ├─ message.py
-|  |  |  |  └─ raw_message_edit.py
+|  |  |  |  └─ message.py
 |  |  |  ├─ ready/
 |  |  |  |  └─ ready.py
 |  |  ├─ slash_commands/
@@ -186,7 +185,7 @@ python Clash-Of-Clans-Discord-Bot\main.py
 |  |  |  ├─ clan_donations.py
 |  |  |  ├─ clan_info.py
 |  |  |  ├─ clan_members.py
-|  |  |  ├─ clan_super_troops_activated.py
+|  |  |  ├─ clan_super_troops.py
 |  |  |  ├─ help.py
 |  |  |  ├─ link_coc_account.py
 |  |  |  ├─ member_info.py

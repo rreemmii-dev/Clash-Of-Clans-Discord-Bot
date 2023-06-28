@@ -25,7 +25,8 @@ from bot.core.slash_commands.buildings_th import buildings_th
 from bot.core.slash_commands.clan_donations import clan_donations
 from bot.core.slash_commands.clan_info import clan_info
 from bot.core.slash_commands.clan_members import clan_members
-from bot.core.slash_commands.clan_super_troops_activated import clan_super_troops_activated
+from bot.core.slash_commands.clan_super_troops import clan_super_troops
+from bot.core.slash_commands.clan_current_war import clan_current_war
 from bot.core.slash_commands.help import help
 from bot.core.slash_commands.link_coc_account import link_coc_account, unlink_coc_account
 from bot.core.slash_commands.member_info import member_info
@@ -207,6 +208,15 @@ if __name__ == "__main__":
         edit_commands_used(interaction.user.id, "clan_members")
         return
 
+    @command_tree.command(name="clan_current_war", description="Show data about the clan war")
+    @app_commands.describe(clan_tag="Clash Of Clans clan tag, format: #A1B2C3D4")
+    async def _clan_current_war(interaction: discord.Interaction, clan_tag: str):
+        if await check_cmd_perms(interaction) == -1:
+            return
+        await clan_current_war(interaction, clan_tag)
+        edit_commands_used(interaction.user.id, "clan_current_war")
+        return
+
     @command_tree.command(name="player_info", description="Show data about the player")
     @app_commands.describe(player_tag="Clash Of Clans player tag, format: #A1B2C3D4")
     @app_commands.describe(information="Information wanted")
@@ -231,15 +241,15 @@ if __name__ == "__main__":
         edit_commands_used(interaction.user.id, "search_clan")
         return
 
-    @command_tree.command(name="clan_super_troops_activated", description="Show which player has activated the super troop in the clan")
+    @command_tree.command(name="clan_super_troops", description="Show which player has activated the super troop in the clan")
     @app_commands.describe(clan_tag="Clash Of Clans clan tag, format: #A1B2C3D4")
     @app_commands.describe(super_troop="Super troop")
     @app_commands.choices(super_troop=[app_commands.Choice(name=s_troop, value=s_troop) for s_troop in coc.SUPER_TROOP_ORDER])
-    async def _clan_super_troops_activated(interaction: discord.Interaction, clan_tag: str, super_troop: app_commands.Choice[str]):
+    async def _clan_super_troops(interaction: discord.Interaction, clan_tag: str, super_troop: app_commands.Choice[str]):
         if await check_cmd_perms(interaction) == -1:
             return
-        await clan_super_troops_activated(interaction, clan_tag, super_troop.value)
-        edit_commands_used(interaction.user.id, "clan_super_troops_activated")
+        await clan_super_troops(interaction, clan_tag, super_troop.value)
+        edit_commands_used(interaction.user.id, "clan_super_troops")
         return
 
     @command_tree.command(name="link_coc_account", description="Link your Clash Of Clans account to your Discord account")
@@ -261,7 +271,7 @@ if __name__ == "__main__":
         edit_commands_used(interaction.user.id, "unlink_coc_account")
         return
 
-    @command_tree.command(name="member_info", description="Show permissions, when the member joined Discord / the server and his avatar")
+    @command_tree.command(name="member_info", description="Show permissions, when the member joined Discord / the server and their avatar")
     @app_commands.describe(member="The member")
     async def _member_info(interaction: discord.Interaction, member: discord.Member):
         if await check_cmd_perms(interaction) == -1:
@@ -332,7 +342,6 @@ if __name__ == "__main__":
                     from bot.core.components.buttons.joined_guild_message import joined_guild_message
                     await joined_guild_message(interaction)
                     return
-
                 footer_text = interaction.message.embeds[0].footer.text
                 command_name = footer_text.split("|")[0]
                 if command_name == "auto_roles_bh" or command_name == "auto_roles bh":
@@ -366,11 +375,11 @@ if __name__ == "__main__":
                         from bot.core.components.select_menus.change_th_lvl import change_th_lvl
                         await change_th_lvl(interaction)
                         return
-                    elif command_name == "clan_super_troops_activated":
-                        if await check_cmd_perms(interaction, command="clan_super_troops_activated") == -1:
+                    elif command_name == "clan_super_troops":
+                        if await check_cmd_perms(interaction, command="clan_super_troops") == -1:
                             return
-                        from bot.core.components.select_menus.change_clan_super_troops_activated import change_clan_super_troops_activated
-                        await change_clan_super_troops_activated(interaction)
+                        from bot.core.components.select_menus.change_clan_super_troops import change_clan_super_troops
+                        await change_clan_super_troops(interaction)
                         return
                     elif command_name == "search_clan":
                         if await check_cmd_perms(interaction, command="search_clan") == -1:
@@ -398,4 +407,4 @@ if __name__ == "__main__":
         await command_tree.sync(guild=discord.Object(id=Ids["Bot_creators_only_server"]))
 
     Clash_info.sync_commands = sync_commands
-    Clash_info.run(Discord_token, log_handler=logging.StreamHandler(), log_level=logging.WARNING)
+    Clash_info.run(Discord_token, log_handler=logging.StreamHandler(), log_level=logging.INFO)

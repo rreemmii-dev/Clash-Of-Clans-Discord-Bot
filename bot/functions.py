@@ -1,5 +1,6 @@
 from typing import Union
 
+import coc
 import discord
 
 from bot.emojis import Emojis
@@ -41,6 +42,10 @@ def cardinal_to_ordinal_number(n: int) -> str:
     else:
         ordinal_indicator = "th"
     return str(n) + ordinal_indicator
+
+
+def coc_timestamp_to_timestamp(t: coc.Timestamp) -> int:
+    return int(t.time.timestamp())
 
 
 def trophies_to_league(trophies: int) -> discord.Emoji:

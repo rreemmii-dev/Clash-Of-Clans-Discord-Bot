@@ -21,12 +21,12 @@ async def clan_members(interaction: discord.Interaction, tag: str):
         text += f"{cardinal_to_ordinal_number(rank)} | {trophies_to_league(member.trophies)} {member.trophies} | {Emojis['Th_emojis'][member.town_hall]} | {Emojis['Exp']} {member.exp_level} | {escape_markdown(member.name)}: {member.tag}\n"
         x += 1
         if x == 25:
-            embed = create_embed(f"Clan members {escape_markdown(clan.name)} ({clan.tag})", f"Members list: \n{text}", interaction.guild.me.color, "", interaction.guild.me.display_avatar.url)
+            embed = create_embed(f"Clan members: {escape_markdown(clan.name)} ({clan.tag})", f"Members list: \n{text}", interaction.guild.me.color, "", interaction.guild.me.display_avatar.url)
             embeds += [embed]
             text = ""
             x = 0
     if x != 0:
-        embed = create_embed(f"Clan members {escape_markdown(clan.name)} ({clan.tag})", f"Members list: \n{text}", interaction.guild.me.color, "", interaction.guild.me.display_avatar.url)
+        embed = create_embed(f"Clan members: {escape_markdown(clan.name)} ({clan.tag})", f"Members list: \n{text}", interaction.guild.me.color, "", interaction.guild.me.display_avatar.url)
         embeds += [embed]
     if (lambda l: sum([len(item) for item in l]))(embeds) <= 6000:
         await interaction.response.send_message(embeds=embeds)
