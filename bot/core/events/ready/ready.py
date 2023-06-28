@@ -10,6 +10,7 @@ import time
 
 import discord
 import flask
+import waitress
 from bot.emojis import Emojis
 from bot.functions import create_embed
 from data.config import Config
@@ -309,7 +310,7 @@ async def ready(self: discord.AutoShardedClient):
             thread.start()
             return flask.Response(status=200)
 
-        app.run(host="0.0.0.0", port=8080)
+        waitress.serve(app, host="0.0.0.0", port=8080)
 
     thread = threading.Thread(target=thread_webhooks_app, args=())
     thread.start()

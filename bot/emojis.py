@@ -24,12 +24,12 @@ class EmojisBot(discord.AutoShardedClient):
         guild = self.get_guild(Ids["Emojis_coc_players_related_server"])
         th_emojis = {}
         for i in range(1, Useful["max_th_lvl"] + 1):
-            th_emojis[i] = discord.utils.get(guild.emojis, name=f"TH_{i:02d}")  # Name from TH_01 to TH_14
+            th_emojis[i] = discord.utils.get(guild.emojis, name=f"TH_{i:02d}")
         emojis["Th_emojis"] = th_emojis
 
         bh_emojis = {}
         for i in range(1, Useful["max_bh_lvl"] + 1):
-            bh_emojis[i] = discord.utils.get(guild.emojis, name=f"BH_{i:02d}")  # Name from BH_01 to BH_09
+            bh_emojis[i] = discord.utils.get(guild.emojis, name=f"BH_{i:02d}")
         emojis["Bh_emojis"] = bh_emojis
 
         league_emojis = {}
@@ -42,7 +42,7 @@ class EmojisBot(discord.AutoShardedClient):
         guild = self.get_guild(Ids["Emojis_coc_troops_server"])
         emojis["Troop"] = discord.utils.get(guild.emojis, name="TE1")
         troops_emojis = {}
-        emoji_to_name = {"TE1": "Barbarian", "TE2": "Archer", "TE3": "Giant", "TE4": "Goblin", "TE5": "Wall Breaker", "TE6": "Balloon", "TE7": "Wizard", "TE8": "Healer", "TE9": "Dragon", "TE10": "P.E.K.K.A", "TE11": "Baby Dragon", "TE12": "Miner", "TE13": "Electro Dragon", "TE14": "Yeti", "TE15": "Dragon Rider", "TE16": "Electro Titan", "TD1": "Minion", "TD2": "Hog Rider", "TD3": "Valkyrie", "TD4": "Golem", "TD5": "Witch", "TD6": "Lava Hound", "TD7": "Bowler", "TD8": "Ice Golem", "TD9": "Headhunter", "SE1": "Lightning Spell", "SE2": "Healing Spell", "SE3": "Rage Spell", "SE4": "Jump Spell", "SE5": "Freeze Spell", "SE6": "Clone Spell", "SE7": "Invisibility Spell", "SE8": "Recall Spell", "SD1": "Poison Spell", "SD2": "Earthquake Spell", "SD3": "Haste Spell", "SD4": "Skeleton Spell", "SD5": "Bat Spell", "M1": "Wall Wrecker", "M2": "Battle Blimp", "M3": "Stone Slammer", "M4": "Siege Barracks", "M5": "Log Launcher", "M6": "Flame Flinger", "M7": "Battle Drill"}
+        emoji_to_name = {"TE1": "Barbarian", "TE2": "Archer", "TE3": "Giant", "TE4": "Goblin", "TE5": "Wall Breaker", "TE6": "Balloon", "TE7": "Wizard", "TE8": "Healer", "TE9": "Dragon", "TE10": "P.E.K.K.A", "TE11": "Baby Dragon", "TE12": "Miner", "TE13": "Electro Dragon", "TE14": "Yeti", "TE15": "Dragon Rider", "TE16": "Electro Titan", "TD1": "Minion", "TD2": "Hog Rider", "TD3": "Valkyrie", "TD4": "Golem", "TD5": "Witch", "TD6": "Lava Hound", "TD7": "Bowler", "TD8": "Ice Golem", "TD9": "Headhunter", "TD10": "Apprentice Warden", "SE1": "Lightning Spell", "SE2": "Healing Spell", "SE3": "Rage Spell", "SE4": "Jump Spell", "SE5": "Freeze Spell", "SE6": "Clone Spell", "SE7": "Invisibility Spell", "SE8": "Recall Spell", "SD1": "Poison Spell", "SD2": "Earthquake Spell", "SD3": "Haste Spell", "SD4": "Skeleton Spell", "SD5": "Bat Spell", "M1": "Wall Wrecker", "M2": "Battle Blimp", "M3": "Stone Slammer", "M4": "Siege Barracks", "M5": "Log Launcher", "M6": "Flame Flinger", "M7": "Battle Drill"}
         for emoji in guild.emojis:
             troops_emojis[emoji_to_name[emoji.name]] = emoji
         emojis["Troops_emojis"] = troops_emojis
@@ -54,6 +54,7 @@ class EmojisBot(discord.AutoShardedClient):
         emojis["Grand_warden"] = discord.utils.get(guild.emojis, name="grand_warden")
         emojis["Royal_champion"] = discord.utils.get(guild.emojis, name="royal_champion")
         emojis["Battle_machine"] = discord.utils.get(guild.emojis, name="battle_machine")
+        emojis["Battle_copter"] = discord.utils.get(guild.emojis, name="battle_copter")
         emoji_to_name = {"P1": "L.A.S.S.I", "P2": "Electro Owl", "P3": "Mighty Yak", "P4": "Unicorn", "P5": "Frosty", "P6": "Diggy", "P7": "Poison Lizard", "P8": "Phoenix"}
         troops_emojis = emojis["Troops_emojis"]
         for emoji_name, name in emoji_to_name.items():
@@ -126,6 +127,7 @@ class EmojisBot(discord.AutoShardedClient):
 
         emojis["Yes"] = discord.utils.get(guild.emojis, name="yes")
         emojis["No"] = discord.utils.get(guild.emojis, name="no")
+        emojis["Maybe"] = discord.utils.get(guild.emojis, name="maybe")
 
         emojis["Calendar"] = discord.utils.get(guild.emojis, name="calendar")
         emojis["Delete"] = discord.utils.get(guild.emojis, name="delete")

@@ -23,7 +23,7 @@ async def member_remove(self: discord.AutoShardedClient, member: discord.Member)
         welcome = member.guild.get_channel(Ids["Welcome_channel"])
         days_spent_in_the_server = (datetime.datetime.now().date() - member.joined_at.date()).days
         if days_spent_in_the_server > 1:
-            embed = create_embed(f"Unfortunately, {escape_markdown(member.name)} left us", f"{escape_markdown(member.name)}#{member.discriminator} (`{member.id}`) left us. He/She joined the server the {member.joined_at.date().isoformat()} ({days_spent_in_the_server} days ago)", member.color, "", member.guild.me.display_avatar.url)
+            embed = create_embed(f"Unfortunately, {escape_markdown(member.name)} left us", f"{escape_markdown(member.name)}#{member.discriminator} (`{member.id}`) left us. They joined the server the {member.joined_at.date().isoformat()} ({days_spent_in_the_server} days ago)", member.color, "", member.guild.me.display_avatar.url)
             embed.set_thumbnail(url=member.display_avatar.url)
             await welcome.send(embed=embed)
         else:
