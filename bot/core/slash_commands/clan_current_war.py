@@ -8,14 +8,17 @@ from bot.functions import coc_timestamp_to_timestamp, create_embed, escape_markd
 
 async def clan_current_war(interaction: discord.Interaction, tag: str):
     try:
-        clan_war = await Clash_of_clans.get_clan_war(tag)
+        clan_war = await Clash_of_clans.get_current_war(tag)
     except coc.errors.NotFound:
         await interaction.response.send_message(f"Clan not found\nThere is no clan with the tag `{tag}`.", ephemeral=True)
         return
     except coc.errors.PrivateWarLog:
-        await interaction.response.send_message(f"Private war log\nThis clan has a private war log.", ephemeral=True)
+        await interaction.response.send_message("Private war log\nThis clan has a private war log.", ephemeral=True)
         return
-    text = f"{Emojis['Members']} {clan_war.team_size} vs {clan_war.team_size}\n{Emojis['Calendar']} {clan_war.state.capitalize()}: start{'ed' if clan_war.start_time.seconds_until < 0 else ''} <t:{coc_timestamp_to_timestamp(clan_war.start_time)}:R>, end{'ed' if clan_war.start_time.seconds_until < 0 else ''} <t:{coc_timestamp_to_timestamp(clan_war.end_time)}:R>"
+    if clan_war is None:
+        await interaction.response.send_message("No war\nThis clan is not in a war", ephemeral=True)
+        return
+    text = f"{Emojis['Members']} {clan_war.team_size} vs {clan_war.team_size}\n{Emojis['Calendar']} {clan_war.state}: start{'ed' if clan_war.start_time.seconds_until < 0 else ''} <t:{coc_timestamp_to_timestamp(clan_war.start_time)}:R>, end{'ed' if clan_war.end_time.seconds_until < 0 else ''} <t:{coc_timestamp_to_timestamp(clan_war.end_time)}:R>"
     th_clan = {}
     th_opponent = {}
     for member in clan_war.members:

@@ -13,6 +13,7 @@ from bot.core.slash_commands.army_link_analyze import army_link_analyze
 from bot.core.slash_commands.auto_roles import auto_roles_bh, auto_roles_leagues, auto_roles_th
 from bot.core.slash_commands.bot_creators_only.add_a_bot_id import add_a_bot_id
 from bot.core.slash_commands.bot_creators_only.add_reaction_with_id import add_reaction_with_id
+from bot.core.slash_commands.bot_creators_only.delete_messages import delete_message
 from bot.core.slash_commands.bot_creators_only.download_emojis import download_emojis
 from bot.core.slash_commands.bot_creators_only.find_user_by_id import find_user_by_id
 from bot.core.slash_commands.bot_creators_only.reboot import reboot
@@ -299,6 +300,11 @@ if __name__ == "__main__":
         await add_reaction_with_id(interaction, int(channel_id), int(message_id), int(emoji_id))
         return
 
+    @command_tree.command(name="__delete_messages", guild=discord.Object(id=Ids["Bot_creators_only_server"]), description="Delete messages quickly")
+    async def ___delete_messages(interaction: discord.Interaction, channel_id: str, number: int):
+        await delete_message(interaction, int(channel_id), number)
+        return
+
     @command_tree.command(name="__download_emojis", guild=discord.Object(id=Ids["Bot_creators_only_server"]), description="Send a .zip message with the emojis of emojis channels")
     @app_commands.choices(recreate_emojis_zip=[
         app_commands.Choice(name="True", value=1),
@@ -407,4 +413,9 @@ if __name__ == "__main__":
         await command_tree.sync(guild=discord.Object(id=Ids["Bot_creators_only_server"]))
 
     Clash_info.sync_commands = sync_commands
-    Clash_info.run(Discord_token, log_handler=logging.StreamHandler(), log_level=logging.INFO)
+    # Clash_info.run(Discord_token, log_handler=logging.StreamHandler(), log_level=logging.INFO)
+    while True:
+        try:
+            Clash_info.run(Discord_token, log_handler=logging.StreamHandler(), log_level=logging.INFO)
+        except Exception as e:
+            print(f"\n\nError : {e}\n\n")
