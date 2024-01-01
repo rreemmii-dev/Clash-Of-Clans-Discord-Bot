@@ -3,7 +3,7 @@ import discord
 
 from bot.apis_clients.clash_of_clans import Clash_of_clans
 from bot.emojis import Emojis
-from bot.functions import create_embed, escape_markdown, trophies_to_league
+from bot.functions import builder_trophies_to_league, create_embed, escape_markdown, trophies_to_league
 from data.views import ComponentView
 
 
@@ -46,7 +46,7 @@ async def player_info_embed(interaction: discord.Interaction, tag: str, informat
         else:
             player__versus_trophies = 0
             player__best_versus_trophies = 0
-        embed = create_embed(f"Player: {escape_markdown(player.name)} ({player.tag}) (Main information)", f"===== Main Base =====\n{Emojis['Th_emojis'][player.town_hall]} TH {player.town_hall} {weapon} | {trophies_to_league(player.trophies)} {player.trophies} | {trophies_to_league(player.best_trophies)} Best: {player.best_trophies} | {Emojis['Exp']} {player.exp_level}\n{Emojis['Barbarian_king']} {lvl_barbarian_king} | {Emojis['Archer_queen']} {lvl_archer_queen} | {Emojis['Grand_warden']} {lvl_grand_warden} | {Emojis['Royal_champion']} {lvl_royal_champion}\n{Emojis['Members']} Clan: {clan}\n{Emojis['Star']} War stars earned: {player.war_stars}\n{Emojis['Capital_gold']} Capital Gold contributed: {player.get_achievement('Most Valuable Clanmate').value: ,}\n{Emojis['Donations']} Troops donated: {player.donations}\n{Emojis['Received']} Troops received: {player.received}\n:crossed_swords: Attacks won: {player.attack_wins}\n:shield: Defenses won: {player.defense_wins}\n\n===== Builder Base =====\n{Emojis['Bh_emojis'][player.builder_hall] if player.builder_hall else Emojis['Bh_emojis'][1]} BH {player.builder_hall if player.builder_hall else 1} | {Emojis['Versus_trophy']} {player__versus_trophies} | {Emojis['Versus_trophy']} Best: {player__best_versus_trophies} | {Emojis['Battle_machine']} {lvl_battle_machine} | {Emojis['Battle_copter']} {lvl_battle_copter}\n\n[Open in Clash Of Clans]({player.share_link})", interaction.guild.me.color, f"player_info|{interaction.user.id}", interaction.guild.me.display_avatar.url)
+        embed = create_embed(f"Player: {escape_markdown(player.name)} ({player.tag}) (Main information)", f"===== Main Base =====\n{Emojis['Th_emojis'][player.town_hall]} TH {player.town_hall} {weapon} | {trophies_to_league(player.trophies)} {player.trophies} | {trophies_to_league(player.best_trophies)} Best: {player.best_trophies} | {Emojis['Exp']} {player.exp_level}\n{Emojis['Barbarian_king']} {lvl_barbarian_king} | {Emojis['Archer_queen']} {lvl_archer_queen} | {Emojis['Grand_warden']} {lvl_grand_warden} | {Emojis['Royal_champion']} {lvl_royal_champion}\n{Emojis['Members']} Clan: {clan}\n{Emojis['Star']} War stars earned: {player.war_stars}\n{Emojis['Capital_gold']} Capital Gold contributed: {player.get_achievement('Most Valuable Clanmate').value: ,}\n{Emojis['Donations']} Troops donated: {player.donations}\n{Emojis['Received']} Troops received: {player.received}\n:crossed_swords: Attacks won: {player.attack_wins}\n:shield: Defenses won: {player.defense_wins}\n\n===== Builder Base =====\n{Emojis['Bh_emojis'][player.builder_hall] if player.builder_hall else Emojis['Bh_emojis'][1]} BH {player.builder_hall if player.builder_hall else 1} | {builder_trophies_to_league(player__versus_trophies)} {player__versus_trophies} | {builder_trophies_to_league(player__best_versus_trophies)} Best: {player__best_versus_trophies} | {Emojis['Battle_machine']} {lvl_battle_machine} | {Emojis['Battle_copter']} {lvl_battle_copter}\n\n[Open in Clash Of Clans]({player.share_link})", interaction.guild.me.color, f"player_info|{interaction.user.id}", interaction.guild.me.display_avatar.url)
 
     elif information == "troops":
         troops = {}
@@ -64,24 +64,24 @@ async def player_info_embed(interaction: discord.Interaction, tag: str, informat
         for troop in troops.values():
             emoji = Emojis["Troops_emojis"][troop["name"]]
             if troop["name"] == "Barbarian":
-                text += "\n\n__Troops:__\n"
+                text += "\n\n**Troops:**\n"
                 a = 0
             if troop["name"] == "Minion":
-                text += "\n\n__Dark troops:__\n"
+                text += "\n\n**Dark troops:**\n"
                 a = 0
             if troop["name"] == "Lightning Spell":
-                text += "\n\n__Spells:__\n"
+                text += "\n\n**Spells:**\n"
                 a = 0
             if troop["name"] == "Poison Spell":
-                text += "\n\n__Dark spells__:\n"
+                text += "\n\n**Dark spells**:\n"
                 a = 0
             if troop["name"] == "Wall Wrecker":
-                text += "\n\n__Siege machines__:\n"
+                text += "\n\n**Siege machines**:\n"
                 a = 0
             if troop["name"] == "L.A.S.S.I":
-                text += "\n\n__Pets__:\n"
+                text += "\n\n**Pets**:\n"
                 a = 0
-            if a == 4:
+            if a == 3:
                 a = 0
                 text += "\n"
             a += 1
@@ -90,12 +90,18 @@ async def player_info_embed(interaction: discord.Interaction, tag: str, informat
         embed = create_embed(f"Player: {escape_markdown(player.name)} ({player.tag}) (Troops)", text, interaction.guild.me.color, f"player_info|{interaction.user.id}", interaction.guild.me.display_avatar.url)
 
     elif information == "success":
-        achievements = "*name: stars | % for next star*"
+        achievements = "*name: stars | % for next star*\n"
         total_stars = 0
         for achievement in player.achievements:
             total_stars += achievement.stars
-            achievements += f"\n{achievement.name}: {achievement.stars} {Emojis['Star_success']} | {int(achievement.value / achievement.target * 100)}%"
-        achievements += f"\n\nTotal stars: {total_stars} {Emojis['Star_success']}"
+            if achievement.name == "Keep Your Account Safe!":
+                achievements += "\n**Home Village:**\n"
+            if achievement.name == "Master Engineering":
+                achievements += "\n**Builder Base:**\n"
+            if achievement.name == "Aggressive Capitalism":
+                achievements += "\n**Clan Capital:**\n"
+            achievements += f"{achievement.name}: {achievement.stars} {Emojis['Star_success']} | {int(achievement.value / achievement.target * 100)}%\n"
+        achievements += f"\nTotal stars: {total_stars} {Emojis['Star_success']}"
         embed = create_embed(f"Player: {escape_markdown(player.name)} ({player.tag}) (Achievements)", f"{achievements}\n[Open in Clash Of Clans]({player.share_link})", interaction.guild.me.color, f"player_info|{interaction.user.id}", interaction.guild.me.display_avatar.url)
 
     return embed

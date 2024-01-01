@@ -32,7 +32,7 @@ async def clan_donations(interaction: discord.Interaction, tag: str):
         member_dict = donations[member_tag]
         member = member_dict["member"]
         rank += 1
-        description += f"{cardinal_to_ordinal_number(rank)} | {member_dict['difference']:+} (= {member_dict['donations']} - {member_dict['received']}) | {member_dict['ratio']}% | {escape_markdown(member.name)}: {member.tag}\n"
+        description += f"{cardinal_to_ordinal_number(rank)} | {member_dict['difference']:+} (= {member_dict['donations']} - {member_dict['received']}) | {member_dict['ratio']}% | {escape_markdown(member.name)} ({member.tag})\n"
         x += 1
         if x == 25:
             embed = create_embed(f"Clan donations: {escape_markdown(clan.name)} ({clan.tag})", f"*Rank | Difference (Donations - Received) | Ratio (%)*\n{description}", interaction.guild.me.color, "", interaction.guild.me.display_avatar.url)

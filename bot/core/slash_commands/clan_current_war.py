@@ -31,10 +31,10 @@ async def clan_current_war(interaction: discord.Interaction, tag: str):
         else:
             d[member.town_hall] = 1
     text += "\nClan roaster:\n"
-    for th in th_clan.keys():
+    for th in sorted(th_clan.keys(), reverse=True):
         text += f"{Emojis['Th_emojis'][th]} {th_clan[th]} "
     text += "\nOpponent roaster:\n"
-    for th in th_opponent.keys():
+    for th in sorted(th_opponent.keys(), reverse=True):
         text += f"{Emojis['Th_emojis'][th]} {th_opponent[th]} "
     embed = create_embed(f"Clan war: {escape_markdown(clan_war.clan.name)} ({clan_war.clan.tag}) :crossed_swords: {escape_markdown(clan_war.opponent.name)} ({clan_war.opponent.tag})", text, interaction.guild.me.color, "", interaction.guild.me.display_avatar.url)
     await interaction.response.send_message(embed=embed)

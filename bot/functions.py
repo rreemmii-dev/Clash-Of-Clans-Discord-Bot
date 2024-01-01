@@ -53,3 +53,10 @@ def trophies_to_league(trophies: int) -> discord.Emoji:
     for league in sorted(league_to_trophies, key=league_to_trophies.get, reverse=True):
         if trophies >= league_to_trophies[league]:
             return Emojis["League_emojis"][league]
+
+
+def builder_trophies_to_league(trophies: int) -> discord.Emoji:
+    builder_league_to_trophies = Useful["builder_league_trophies"]
+    for league in sorted(builder_league_to_trophies, key=builder_league_to_trophies.get, reverse=True):
+        if trophies >= builder_league_to_trophies[league]:
+            return Emojis["Builder_league_emojis"][league]

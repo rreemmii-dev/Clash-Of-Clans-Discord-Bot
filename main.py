@@ -242,14 +242,12 @@ if __name__ == "__main__":
         edit_commands_used(interaction.user.id, "search_clan")
         return
 
-    @command_tree.command(name="clan_super_troops", description="Show which player has activated the super troop in the clan")
+    @command_tree.command(name="clan_super_troops", description="Show which super troop has been activated, and by which player of the clan")
     @app_commands.describe(clan_tag="Clash Of Clans clan tag, format: #A1B2C3D4")
-    @app_commands.describe(super_troop="Super troop")
-    @app_commands.choices(super_troop=[app_commands.Choice(name=s_troop, value=s_troop) for s_troop in coc.SUPER_TROOP_ORDER])
-    async def _clan_super_troops(interaction: discord.Interaction, clan_tag: str, super_troop: app_commands.Choice[str]):
+    async def _clan_super_troops(interaction: discord.Interaction, clan_tag: str):
         if await check_cmd_perms(interaction) == -1:
             return
-        await clan_super_troops(interaction, clan_tag, super_troop.value)
+        await clan_super_troops(interaction, clan_tag)
         edit_commands_used(interaction.user.id, "clan_super_troops")
         return
 
@@ -380,12 +378,6 @@ if __name__ == "__main__":
                             return
                         from bot.core.components.select_menus.change_th_lvl import change_th_lvl
                         await change_th_lvl(interaction)
-                        return
-                    elif command_name == "clan_super_troops":
-                        if await check_cmd_perms(interaction, command="clan_super_troops") == -1:
-                            return
-                        from bot.core.components.select_menus.change_clan_super_troops import change_clan_super_troops
-                        await change_clan_super_troops(interaction)
                         return
                     elif command_name == "search_clan":
                         if await check_cmd_perms(interaction, command="search_clan") == -1:

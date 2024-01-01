@@ -37,7 +37,7 @@ async def member_join(self: discord.AutoShardedClient, member: discord.Member):
         draw = ImageDraw.Draw(mask)
 
         draw.ellipse((0, 0) + bigsize, fill=255)
-        mask = mask.resize(avatar.size, Image.ANTIALIAS)
+        mask = mask.resize(avatar.size, Image.LANCZOS)
         avatar.putalpha(mask)
 
         output = ImageOps.fit(avatar, mask.size, centering=(0.5, 0.5))
