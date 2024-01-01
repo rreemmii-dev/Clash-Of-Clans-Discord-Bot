@@ -3,7 +3,6 @@
 
 [![Discord](https://img.shields.io/discord/719537805604290650?color=%230000ff&label=Discord&logo=https%3A%2F%2Fdiscord.com%2Fassets%2F2c21aeda16de354ba5334551a883b481.png&logoColor=%2300000000)](https://discord.gg/KQmstPw)
 [![Python version](https://img.shields.io/badge/Python-%E2%89%A5%203.8-blue)](https://www.python.org/downloads/)
-[![GitHub main branch size](https://img.shields.io/github/size/rreemmii-dev/Clash-Of-Clans-Discord-Bot?branch=main&label=Main%20branch%20size)]()
 [![GitHub Repo stars](https://img.shields.io/github/stars/rreemmii-dev/Clash-Of-Clans-Discord-Bot?label=Stars)](https://github.com/rreemmii-dev/Clash-Of-Clans-Discord-Bot/stargazers)
 [![GitHub contributors](https://img.shields.io/github/contributors/rreemmii-dev/Clash-Of-Clans-Discord-Bot?label=Contributors)](https://github.com/rreemmii-dev/Clash-Of-Clans-Discord-Bot/graphs/contributors)
 
