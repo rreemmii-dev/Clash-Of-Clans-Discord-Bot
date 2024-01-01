@@ -35,7 +35,7 @@ pip install -r Clash-Of-Clans-Discord-Bot\requirements.txt
 You must follow these steps to create and set up your bot:
 - Create a bot following [these steps](https://discordpy.readthedocs.io/en/latest/discord.html). For your invite link, add the `bot` and `applications.commands` scopes, and the required permissions given [here](data/data_source/useful.json) (or the `administrator` permission).
 - You will need the [member privileged intent](https://discordpy.readthedocs.io/en/latest/intents.html#privileged-intents) to run the bot. If your bot is in more than 100 servers, you have to make a request for additional intents, which is usually satisfied within a week.
-- Unzip [Emojis.zip](Emojis.zip). Then, create a server for each folder (you will have about 6 servers for emojis), and add emojis from each folder to the matching server. Finally, add your bot in each of these servers.
+- Unzip [Emojis.zip](Emojis.zip). Then, create a server for each folder (you will have about 8 servers for emojis), and add emojis from each folder to the matching server. Finally, add your bot in each of these servers.
 
 Once it's done, you have to edit the [bot/config.json](bot/config.json) file and fill in the [data/data_source/ids.json](data/data_source/ids.json). You have also to rename the [secure_folder_template](secure_folder_template) to "Secure Folder" and add your credentials in your [Secure Folder/login.json](secure_folder_template/login.json) file.
 
@@ -171,6 +171,7 @@ python Clash-Of-Clans-Discord-Bot\main.py
 |  |  |  ├─ bot_creators_only/
 |  |  |  |  ├─ add_a_bot_id.py
 |  |  |  |  ├─ add_reaction_with_id.py
+|  |  |  |  ├─ delete_messages.py
 |  |  |  |  ├─ download_emojis.py
 |  |  |  |  ├─ find_user_by_id.py
 |  |  |  |  ├─ reboot.py
