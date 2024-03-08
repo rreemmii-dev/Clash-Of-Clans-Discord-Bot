@@ -1,8 +1,8 @@
-coc.py==3.2.1
+coc.py==3.3.1
 discord.py==2.3.2
 Flask==2.3.3
 nest_asyncio==1.5.7
-Pillow==9.5.0
+Pillow==10.2.0
 waitress==2.1.2
 requests==2.31.0
 git+https://github.com/top-gg/python-sdk.git  # topggpy==2.0.0, not yet available with pip install topggpy==2.0.0
