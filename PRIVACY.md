@@ -20,7 +20,7 @@ The use of the bot is considered to be an agreement with the terms of this Polic
 Each time you use a slash command, we store your Discord user ID and the name of the slash command you used in order to know the bot performance. This data is stored until the end of the month.
 
 ### /link_coc_account slash command
-When you use the slash command /link_coc_account, we store your Discord user ID and your Clash Of Clans player tag to link your accounts. You can unlink your accounts with /unlink_coc_account, and this data will be immediately deleted.
+When you use the slash command /link_coc_account, we store your Discord user ID and your Clash of Clans player tag to link your accounts. You can unlink your accounts with /unlink_coc_account, and this data will be immediately deleted.
 
 ### Vote for the bot
 If you vote for the bot on top.gg, we will store your Discord user ID to know who are our supports.

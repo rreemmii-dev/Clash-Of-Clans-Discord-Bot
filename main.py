@@ -28,11 +28,12 @@ from bot.core.slash_commands.clan_info import clan_info
 from bot.core.slash_commands.clan_members import clan_members
 from bot.core.slash_commands.clan_super_troops import clan_super_troops
 from bot.core.slash_commands.clan_current_war import clan_current_war
+from bot.core.slash_commands.credits import credits
 from bot.core.slash_commands.help import help
 from bot.core.slash_commands.link_coc_account import link_coc_account, unlink_coc_account
-from bot.core.slash_commands.member_info import member_info
 from bot.core.slash_commands.player_info import player_info
 from bot.core.slash_commands.search_clan import search_clan
+from bot.core.slash_commands.user_info import user_info
 from bot.functions import *
 from data.config import Config
 from data.useful import Ids
@@ -115,9 +116,10 @@ if __name__ == "__main__":
         return
 
 
-    # Clash Of Clans
+    # CLASH OF CLANS
+
     @command_tree.command(name="army_link_analyze", description="Show the troops and spells from an in-game army link")
-    @app_commands.describe(army_link="Army link, gettable from Clash Of Clans > Army > Quick Train > Share > Share as link")
+    @app_commands.describe(army_link="Army link, gettable from Clash of Clans > Army > Quick Train > Share > Share as link")
     async def _army_link_analyze(interaction: discord.Interaction, army_link: str):
         if await check_cmd_perms(interaction) == -1:
             return
@@ -183,7 +185,7 @@ if __name__ == "__main__":
         return
 
     @command_tree.command(name="clan_donations", description="Show the clan members, sorted by donations stats")
-    @app_commands.describe(clan_tag="Clash Of Clans clan tag, format: #A1B2C3D4")
+    @app_commands.describe(clan_tag="Clash of Clans clan tag, format: #A1B2C3D4")
     async def _clan_donations(interaction: discord.Interaction, clan_tag: str):
         if await check_cmd_perms(interaction) == -1:
             return
@@ -192,7 +194,7 @@ if __name__ == "__main__":
         return
 
     @command_tree.command(name="clan_info", description="Show data about the clan")
-    @app_commands.describe(clan_tag="Clash Of Clans clan tag, format: #A1B2C3D4")
+    @app_commands.describe(clan_tag="Clash of Clans clan tag, format: #A1B2C3D4")
     async def _clan_info(interaction: discord.Interaction, clan_tag: str):
         if await check_cmd_perms(interaction) == -1:
             return
@@ -201,7 +203,7 @@ if __name__ == "__main__":
         return
 
     @command_tree.command(name="clan_members", description="Show the clan members")
-    @app_commands.describe(clan_tag="Clash Of Clans clan tag, format: #A1B2C3D4")
+    @app_commands.describe(clan_tag="Clash of Clans clan tag, format: #A1B2C3D4")
     async def _clan_members(interaction: discord.Interaction, clan_tag: str):
         if await check_cmd_perms(interaction) == -1:
             return
@@ -210,7 +212,7 @@ if __name__ == "__main__":
         return
 
     @command_tree.command(name="clan_current_war", description="Show data about the clan war")
-    @app_commands.describe(clan_tag="Clash Of Clans clan tag, format: #A1B2C3D4")
+    @app_commands.describe(clan_tag="Clash of Clans clan tag, format: #A1B2C3D4")
     async def _clan_current_war(interaction: discord.Interaction, clan_tag: str):
         if await check_cmd_perms(interaction) == -1:
             return
@@ -219,7 +221,7 @@ if __name__ == "__main__":
         return
 
     @command_tree.command(name="player_info", description="Show data about the player")
-    @app_commands.describe(player_tag="Clash Of Clans player tag, format: #A1B2C3D4")
+    @app_commands.describe(player_tag="Clash of Clans player tag, format: #A1B2C3D4")
     @app_commands.describe(information="Information wanted")
     @app_commands.choices(information=[
         app_commands.Choice(name="main", value="main"),
@@ -243,7 +245,7 @@ if __name__ == "__main__":
         return
 
     @command_tree.command(name="clan_super_troops", description="Show which super troop has been activated, and by which player of the clan")
-    @app_commands.describe(clan_tag="Clash Of Clans clan tag, format: #A1B2C3D4")
+    @app_commands.describe(clan_tag="Clash of Clans clan tag, format: #A1B2C3D4")
     async def _clan_super_troops(interaction: discord.Interaction, clan_tag: str):
         if await check_cmd_perms(interaction) == -1:
             return
@@ -251,9 +253,9 @@ if __name__ == "__main__":
         edit_commands_used(interaction.user.id, "clan_super_troops")
         return
 
-    @command_tree.command(name="link_coc_account", description="Link your Clash Of Clans account to your Discord account")
-    @app_commands.describe(player_tag="Clash Of Clans player tag, format: #A1B2C3D4")
-    @app_commands.describe(api_token="Your API token, findable in Clash Of Clans > Settings > More Settings > API Token > Show")
+    @command_tree.command(name="link_coc_account", description="Link your Clash of Clans account to your Discord account")
+    @app_commands.describe(player_tag="Clash of Clans player tag, format: #A1B2C3D4")
+    @app_commands.describe(api_token="Your API token, findable in Clash of Clans > Settings > More Settings > API Token > Show")
     async def _link_coc_account(interaction: discord.Interaction, player_tag: str, api_token: str):
         if await check_cmd_perms(interaction) == -1:
             return
@@ -261,8 +263,8 @@ if __name__ == "__main__":
         edit_commands_used(interaction.user.id, "link_coc_account")
         return
 
-    @command_tree.command(name="unlink_coc_account", description="Unlink your Clash Of Clans account from your Discord account")
-    @app_commands.describe(player_tag="Clash Of Clans player tag, format: #A1B2C3D4")
+    @command_tree.command(name="unlink_coc_account", description="Unlink your Clash of Clans account from your Discord account")
+    @app_commands.describe(player_tag="Clash of Clans player tag, format: #A1B2C3D4")
     async def _unlink_coc_account(interaction: discord.Interaction, player_tag: str):
         if await check_cmd_perms(interaction) == -1:
             return
@@ -270,14 +272,17 @@ if __name__ == "__main__":
         edit_commands_used(interaction.user.id, "unlink_coc_account")
         return
 
-    @command_tree.command(name="member_info", description="Show permissions, when the member joined Discord / the server and their avatar")
-    @app_commands.describe(member="The member")
-    async def _member_info(interaction: discord.Interaction, member: discord.Member):
+    @command_tree.command(name="user_info", description="Show permissions, when the user joined Discord / the server and their avatar")
+    @app_commands.describe(user="The member")
+    async def _user_info(interaction: discord.Interaction, user: discord.User):
         if await check_cmd_perms(interaction) == -1:
             return
-        await member_info(interaction, member)
-        edit_commands_used(interaction.user.id, "member_info")
+        await user_info(interaction, user)
+        edit_commands_used(interaction.user.id, "user_info")
         return
+
+
+    # OTHER
 
     @command_tree.command(name="bot_info", description="Show some information about the bot")
     async def _bot_info(interaction: discord.Interaction):
@@ -287,7 +292,17 @@ if __name__ == "__main__":
         edit_commands_used(interaction.user.id, "bot_info")
         return
 
+    @command_tree.command(name="credits", description="Show bot credits")
+    async def _credits(interaction: discord.Interaction):
+        if await check_cmd_perms(interaction) == -1:
+            return
+        await credits(interaction)
+        edit_commands_used(interaction.user.id, "credits")
+        return
+
+
     # CREATORS
+
     @command_tree.command(name="__add_a_bot_id", guild=discord.Object(id=Ids["Bot_creators_only_server"]), description="Add the bot with the given id")
     async def ___add_a_bot_id(interaction: discord.Interaction, bot_id: str):
         await add_a_bot_id(interaction, int(bot_id))

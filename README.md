@@ -7,7 +7,7 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/rreemmii-dev/Clash-Of-Clans-Discord-Bot?label=Contributors)](https://github.com/rreemmii-dev/Clash-Of-Clans-Discord-Bot/graphs/contributors)
 
 
-**This project is a Discord Bot about the game Clash Of Clans. It uses especially the [discord.py](https://github.com/Rapptz/discord.py) and [coc.py](https://github.com/mathsman5133/coc.py) libraries.**
+**This project is a Discord Bot about the game Clash of Clans. It uses especially the [discord.py](https://github.com/Rapptz/discord.py) and [coc.py](https://github.com/mathsman5133/coc.py) libraries.**
 
 If you want to test the bot, you can [add it to your server](https://rreemmii-dev.github.io/invite). You can also join the [support server](https://discord.gg/KQmstPw) to test the bot or to ask for help.
 
@@ -62,7 +62,7 @@ In this file, you can choose whether to activate or not some parts of the code (
 
 </summary>
 
-In this file, you will have to put the ID of each users, roles, servers or channels.
+In this file, you will have to put the ID of each user, role, server or channel.
 
 | Field                               | Description                                                                                                                                                                                                     |
 |-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -77,7 +77,7 @@ In this file, you will have to put the ID of each users, roles, servers or chann
 | `Emojis_coc_players_related_server` | The server with the emojis that are related to players (Town Halls, Builder Halls, leagues and heroes).                                                                                                         |
 | `Emojis_coc_troops_server`          | The server with emojis of troops, spells, siege machines and pets.                                                                                                                                              |
 | `Emojis_coc_clans_related_server`   | The server with emojis that are related to clans (war leagues).                                                                                                                                                 |
-| `Emojis_coc_remains_server`         | The server with all remaining emojis about Clash Of Clans.                                                                                                                                                      |
+| `Emojis_coc_remains_server`         | The server with all remaining emojis about Clash of Clans.                                                                                                                                                      |
 | `Emojis_discord_main_server`        | The server with emojis of Discord User Interface.                                                                                                                                                               |
 | `Emojis_general_remains_server`     | The server with all remaining emojis.                                                                                                                                                                           |
 | Roles                               |                                                                                                                                                                                                                 |
@@ -187,6 +187,7 @@ python Clash-Of-Clans-Discord-Bot\main.py
 |  |  |  ├─ clan_info.py
 |  |  |  ├─ clan_members.py
 |  |  |  ├─ clan_super_troops.py
+|  |  |  ├─ credits.py
 |  |  |  ├─ help.py
 |  |  |  ├─ link_coc_account.py
 |  |  |  ├─ member_info.py

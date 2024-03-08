@@ -28,8 +28,12 @@ async def clan_super_troops(interaction: discord.Interaction, clan_tag: str):
     for super_troop_name, players in super_troops.items():
         players.sort(key=lambda p: p['super_troop_level'], reverse=True)
         text += f"**{Emojis['Troops_emojis'][super_troop_name]} {super_troop_name}**:\n"
+        text_troop = ""
         for player in players:
-            text += f"level {player['super_troop_level']}/{super_troops_max_level[super_troop_name]}: {escape_markdown(player['name'])} ({player['tag']})\n"
+            text_troop += f"level {player['super_troop_level']}/{super_troops_max_level[super_troop_name]}: {escape_markdown(player['name'])} ({player['tag']})\n"
+        if text_troop == "":
+            text_troop = "None\n"
+        text += text_troop
         text += "\n"
     if text == "":
         text = f"No super troop has been activated by any player in this clan"

@@ -47,7 +47,7 @@ async def member_join(self: discord.AutoShardedClient, member: discord.Member):
         avatar_size = 768
         avatar_image = avatar_image.resize((avatar_size, avatar_size))
 
-        image = Image.open("ressources/welcome.png")
+        image = Image.open("resources/welcome.png")
         image = image.resize((1920, 1080))
         image_width, image_height = image.size
         foreground = avatar_image
@@ -57,16 +57,24 @@ async def member_join(self: discord.AutoShardedClient, member: discord.Member):
 
         draw = ImageDraw.Draw(image)
 
-        font = ImageFont.truetype("ressources/supercell_magic_webfont.ttf", 100)
-        text_width, text_height = draw.textsize(f"Welcome {member.name}", font=font)
+        font = ImageFont.truetype("resources/supercell_magic_webfont.ttf", 100)
+        text_color = (55, 115, 235)
+
+        text = f"Welcome {member.name}"
+        (left, top, right, bottom) = draw.textbbox((0, 0), text, font=font)
+        text_width = right - left
+        text_height = bottom - top
         x = (image_width - text_width) // 2
         y = (image_height - text_height) // 2 - 400
-        text_color = (55, 115, 235)
         draw.text((x, y), f"Welcome {member.name}", fill=text_color, font=font)
-        text_width, text_height = draw.textsize("Clash INFO support server", font=font)
+
+        text = "Clash INFO support server"
+        (left, top, right, bottom) = draw.textbbox((0, 0), text, font=font)
+        text_width = right - left
+        text_height = bottom - top
         x = (image_width - text_width) // 2
         y = (image_height - text_height) // 2 + 400
-        draw.text((x, y), "Clash INFO support server", fill=text_color, font=font)
+        draw.text((x, y), text, fill=text_color, font=font)
 
         buffer_output = io.BytesIO()
         image.save(buffer_output, format="PNG")

@@ -11,10 +11,11 @@
     "clan_members": ["send_messages", "view_channel"],
     "clan_super_troops": [],
     "clan_current_war": [],
+    "credits": [],
     "help": [],
     "link_coc_account": [],
-    "member_info": [],
     "player_info": [],
     "search_clan": [],
-    "unlink_coc_account": []
+    "unlink_coc_account": [],
+    "user_info": []
 }
