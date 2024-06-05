@@ -14,18 +14,6 @@ async def member_join(self: discord.AutoShardedClient, member: discord.Member):
             member_role = member.guild.get_role(Ids["Member_role"])
             await member.add_roles(member_role)
 
-        users = 0
-        for m in member.guild.members:
-            if not m.bot:
-                users += 1
-        for channel in member.guild.channels:
-            if channel.name.startswith("👤 "):
-                await channel.edit(name=f"👤 Users: {users: ,}")
-                break
-        else:
-            overwrite = {member.guild.default_role: discord.PermissionOverwrite(connect=False, view_channel=True)}
-            await member.guild.create_voice_channel(f"👤 Users: {users: ,}", overwrites=overwrite)
-
         buffer_avatar = io.BytesIO()
         await member.display_avatar.save(buffer_avatar)
         buffer_avatar.seek(0)
