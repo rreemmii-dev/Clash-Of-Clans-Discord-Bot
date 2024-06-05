@@ -69,7 +69,7 @@ class EmojisBot(discord.AutoShardedClient):
         emojis["Royal_champion"] = discord.utils.get(guild.emojis, name="royal_champion")
         emojis["Battle_machine"] = discord.utils.get(guild.emojis, name="battle_machine")
         emojis["Battle_copter"] = discord.utils.get(guild.emojis, name="battle_copter")
-        emoji_to_name = {"P1": "L.A.S.S.I", "P2": "Electro Owl", "P3": "Mighty Yak", "P4": "Unicorn", "P5": "Frosty", "P6": "Diggy", "P7": "Poison Lizard", "P8": "Phoenix", "P9": "Spirit Fox", "M1": "Wall Wrecker", "M2": "Battle Blimp", "M3": "Stone Slammer", "M4": "Siege Barracks", "M5": "Log Launcher", "M6": "Flame Flinger", "M7": "Battle Drill"}
+        emoji_to_name = {"P1": "L.A.S.S.I", "P2": "Electro Owl", "P3": "Mighty Yak", "P4": "Unicorn", "P5": "Frosty", "P6": "Diggy", "P7": "Poison Lizard", "P8": "Phoenix", "P9": "Spirit Fox", "P10": "Angry Jelly", "M1": "Wall Wrecker", "M2": "Battle Blimp", "M3": "Stone Slammer", "M4": "Siege Barracks", "M5": "Log Launcher", "M6": "Flame Flinger", "M7": "Battle Drill"}
         troops_emojis = emojis["Troops_emojis"]
         for emoji_name, name in emoji_to_name.items():
             troops_emojis[emoji_to_name[emoji_name]] = discord.utils.get(guild.emojis, name=emoji_name)

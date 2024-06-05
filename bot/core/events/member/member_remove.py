@@ -8,18 +8,6 @@ from data.useful import Ids
 
 async def member_remove(self: discord.AutoShardedClient, member: discord.Member):
     if member.guild.id == Ids["Support_server"]:
-        users = 0
-        for m in member.guild.members:
-            if not m.bot:
-                users += 1
-        for channel in member.guild.channels:
-            if channel.name.startswith("👤 "):
-                await channel.edit(name=f"👤 Users: {users: ,}")
-                break
-        else:
-            overwrite = {member.guild.default_role: discord.PermissionOverwrite(connect=False, view_channel=True)}
-            await member.guild.create_voice_channel(f"👤 Users: {users: ,}", overwrites=overwrite)
-
         welcome = member.guild.get_channel(Ids["Welcome_channel"])
         days_spent_in_the_server = (datetime.datetime.now().date() - member.joined_at.date()).days
         if days_spent_in_the_server > 1:

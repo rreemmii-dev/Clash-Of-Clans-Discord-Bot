@@ -122,7 +122,7 @@ Unlink your Clash of Clans account from your Discord account
 
 ### `/user_info`
 
-Show Clash of Clans linked accounts, when the member joined Discord / this server and their avatar
+Show Clash of Clans linked accounts, when the user joined Discord / this server and their avatar
 
 *Options:* `user`
 
