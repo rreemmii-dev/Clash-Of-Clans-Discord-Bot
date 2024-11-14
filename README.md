@@ -9,7 +9,7 @@
 
 **This project is a Discord Bot about the game Clash of Clans. It uses especially the [discord.py](https://github.com/Rapptz/discord.py) and [coc.py](https://github.com/mathsman5133/coc.py) libraries.**
 
-If you want to test the bot, you can [add it to your server](https://rreemmii-dev.github.io/invite). You can also join the [support server](https://discord.gg/KQmstPw) to test the bot or to ask for help.
+If you want to test the bot, you can [add it to your server](https://rreemmii-dev.github.io/clash-info/invite). You can also join the [support server](https://discord.gg/KQmstPw) to test the bot or to ask for help.
 
 
 ## Table of contents
