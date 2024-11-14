@@ -11,7 +11,6 @@
     
     "SERVERS": "SERVERS",
     "Support_server": 719537805604290650,
-    "Test_server": 710237092931829893,
     "Bot_creators_only_server": 808814347224481863,
     "Emojis_coc_players_related_server": 696344010905747487,
     "Emojis_coc_troops_server": 716259214279966770,
@@ -24,18 +23,17 @@
     
     "ROLES": "ROLES",
     "Member_role": 719548456674394172,
-    "Staff_role": 743796789769142354,
 
     "CHANNELS": "CHANNELS",
     "Weekly_stats_channel": 785956772568367144,
     "Monthly_stats_channel": 869658106701959258,
     "News_channel": 741278417130881024,
     "Rules_channel": 719579241364193331,
-    "Status_channel": 733089353634545684,
+    "Status_channel": 1262745562093064263,
     "Guilds_bot_log_channel": 722423315909836860,
     "Dm_bot_log_channel": 748509142578233364,
     "Votes_channel": 793853230476034078,
     "Welcome_channel": 722849076416217161,
-    "Secure_folder_backup_channel": 808814347224481866,
+    "Secure_folder_backup_channel": 1262746235543228456,
     "Events_github_channel": 837339878869565460
 }

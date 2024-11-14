@@ -1,4 +1,3 @@
-import asyncio
 import datetime
 import io
 import json
@@ -21,10 +20,6 @@ from data.useful import Ids
 async def ready(self: discord.AutoShardedClient):
     print("Beginning of the preparation of the bot")
 
-    if Config["main_bot"]:
-        status_channel = self.get_channel(Ids["Status_channel"])
-        await status_channel.send(f"{Emojis['Yes']} Connected `{datetime.datetime.now().replace(microsecond=0).isoformat(sep=' ')}`")
-
     print("Slash Commands will be synced...")
     await self.sync_commands()
     print("Slash Commands synced")
@@ -32,12 +27,12 @@ async def ready(self: discord.AutoShardedClient):
     from bot.apis_clients.clash_of_clans import Clash_of_clans, login
     await Clash_of_clans.login(login["email"], login["password"])
 
-    for guild in self.guilds:
-        await guild.chunk()
+    # for guild in self.guilds:
+    #     await guild.chunk()
 
     if Config["main_bot"]:
         status_channel = self.get_channel(Ids["Status_channel"])
-        await status_channel.send(f"{Emojis['Yes']} Cache loaded `{datetime.datetime.now().replace(microsecond=0).isoformat(sep=' ')}`")
+        await status_channel.send(f"{Emojis['Yes']} Connected `{datetime.datetime.now().replace(microsecond=0).isoformat(sep=' ')}`")
 
     if Ids["Member_role"]:
         support_server = self.get_guild(Ids["Support_server"])
@@ -46,12 +41,7 @@ async def ready(self: discord.AutoShardedClient):
             if member_role not in member.roles and not member.bot:
                 await member.add_roles(member_role)
 
-    clash_info = self
-
-    if Config["main_bot"]:
-        discord_token = Login["discord"]["main"]
-    else:
-        discord_token = Login["discord"]["beta"]
+    from bot.apis_clients.discord import Discord_token as discord_token, intents
 
     def thread_weekly_stats():
         while True:
@@ -64,12 +54,9 @@ async def ready(self: discord.AutoShardedClient):
 
             # ===== WEEKLY STATS =====
 
-            loop = asyncio.new_event_loop()
-            asyncio.set_event_loop(loop)
-
             class WeeklyStatsBot(discord.AutoShardedClient):
                 def __init__(self):
-                    super().__init__(intents=discord.Intents.default())
+                    super().__init__(intents=intents, chunk_guilds_at_startup=False)
 
                 async def on_ready(self):
                     channel = self.get_channel(Ids["Weekly_stats_channel"])
@@ -81,20 +68,15 @@ async def ready(self: discord.AutoShardedClient):
                             old_servers_count = int(message.content)
                             await message.delete()
                             break
-                    msg = await channel.send(str(len(clash_info.guilds)))
+                    msg = await channel.send(str(len(self.guilds)))
                     await msg.pin()
-                    diff_servers_count = len(clash_info.guilds) - old_servers_count
+                    diff_servers_count = len(self.guilds) - old_servers_count
                     diff_servers_count = "%+d" % diff_servers_count
                     await channel.send(f"Evolution of number of servers this week: {diff_servers_count}")
                     await self.close()
 
             weekly_stats_bot = WeeklyStatsBot()
-            try:
-                loop.run_until_complete(weekly_stats_bot.start(discord_token))
-            except KeyboardInterrupt:
-                loop.run_until_complete(weekly_stats_bot.close())
-            finally:
-                loop.close()
+            weekly_stats_bot.run(discord_token)
 
     thread = threading.Thread(target=thread_weekly_stats)
     thread.start()
@@ -112,16 +94,13 @@ async def ready(self: discord.AutoShardedClient):
 
             # ===== MONTHLY USERS =====
 
-            loop = asyncio.new_event_loop()
-            asyncio.set_event_loop(loop)
-
             class MonthlyUsersBot(discord.AutoShardedClient):
 
                 def __init__(self):
-                    super().__init__(intents=discord.Intents.default())
+                    super().__init__(intents=intents, chunk_guilds_at_startup=False)
 
                 async def on_ready(self):
-                    connection = sqlite3.connect(Config["secure_folder_path"] + "secure.sqlite")
+                    connection = sqlite3.connect(Config["secure_folder_path"] + "secure.db")
                     cursor = connection.cursor()
                     cursor.execute("SELECT COUNT(*) FROM bot_usage")
                     nb_monthly_users = cursor.fetchone()[0]
@@ -149,12 +128,7 @@ async def ready(self: discord.AutoShardedClient):
                     await self.close()
 
             monthly_users_bot = MonthlyUsersBot()
-            try:
-                loop.run_until_complete(monthly_users_bot.start(discord_token))
-            except KeyboardInterrupt:
-                loop.run_until_complete(monthly_users_bot.close())
-            finally:
-                loop.close()
+            monthly_users_bot.run(discord_token)
 
     thread = threading.Thread(target=thread_monthly_users)
     thread.start()
@@ -170,13 +144,10 @@ async def ready(self: discord.AutoShardedClient):
 
             # ===== BACKUP SECURE FOLDER =====
 
-            loop = asyncio.new_event_loop()
-            asyncio.set_event_loop(loop)
-
             class BackupSecureFolderBot(discord.AutoShardedClient):
 
                 def __init__(self):
-                    super().__init__(intents=discord.Intents.default())
+                    super().__init__(intents=intents, chunk_guilds_at_startup=False)
 
                 async def on_ready(self):
                     shutil.make_archive("Secure Folder", 'zip', Config["secure_folder_path"][:-1])
@@ -186,12 +157,7 @@ async def ready(self: discord.AutoShardedClient):
                     await self.close()
 
             secure_folder_backup_bot = BackupSecureFolderBot()
-            try:
-                loop.run_until_complete(secure_folder_backup_bot.start(discord_token))
-            except KeyboardInterrupt:
-                loop.run_until_complete(secure_folder_backup_bot.close())
-            finally:
-                loop.close()
+            secure_folder_backup_bot.run(discord_token)
 
     thread = threading.Thread(target=thread_backup_secure_folder)
     thread.start()
@@ -207,17 +173,14 @@ async def ready(self: discord.AutoShardedClient):
                 return flask.Response(status=401)
 
             def run_bot(voter_id: int):
-                loop = asyncio.new_event_loop()
-                asyncio.set_event_loop(loop)
-
                 class TopggWebhooksBot(discord.AutoShardedClient):
                     def __init__(self):
-                        super().__init__(intents=discord.Intents.default())
+                        super().__init__(intents=intents, chunk_guilds_at_startup=False)
 
                     async def on_ready(self):
                         from data.secure_folder import Votes
 
-                        user = clash_info.get_user(voter_id)
+                        user = await self.fetch_user(voter_id)
                         votes_channel = self.get_channel(Ids["Votes_channel"])
 
                         if user.id not in Votes.keys():
@@ -231,7 +194,7 @@ async def ready(self: discord.AutoShardedClient):
                         vote_copy = dict(Votes)
                         vote = {}
                         for member_id, member_votes in vote_copy.items():
-                            member = clash_info.get_user(int(member_id))
+                            member = await self.fetch_user(int(member_id))
                             vote[member.mention] = member_votes
                         vote = sorted(vote.items(), key=lambda t: t[1])
                         text = ""
@@ -242,12 +205,7 @@ async def ready(self: discord.AutoShardedClient):
                         await self.close()
 
                 topgg_webhooks_bot = TopggWebhooksBot()
-                try:
-                    loop.run_until_complete(topgg_webhooks_bot.start(discord_token))
-                except KeyboardInterrupt:
-                    loop.run_until_complete(topgg_webhooks_bot.close())
-                finally:
-                    loop.close()
+                topgg_webhooks_bot.run(discord_token)
 
             thread = threading.Thread(target=run_bot, kwargs={"voter_id": int(flask.request.get_json()["user"])})
             thread.start()
@@ -259,12 +217,9 @@ async def ready(self: discord.AutoShardedClient):
                 return 418
 
             def run_bot(event_name: str, original_json: dict):
-                loop = asyncio.new_event_loop()
-                asyncio.set_event_loop(loop)
-
                 class GitHubWebhooksBot(discord.AutoShardedClient):
                     def __init__(self):
-                        super().__init__(intents=discord.Intents.default())
+                        super().__init__(intents=intents, chunk_guilds_at_startup=False)
 
                     async def on_ready(self):
                         events_channel = self.get_channel(Ids["Events_github_channel"])
@@ -299,18 +254,13 @@ async def ready(self: discord.AutoShardedClient):
                         await self.close()
 
                 github_webhooks_bot = GitHubWebhooksBot()
-                try:
-                    loop.run_until_complete(github_webhooks_bot.start(discord_token))
-                except KeyboardInterrupt:
-                    loop.run_until_complete(github_webhooks_bot.close())
-                finally:
-                    loop.close()
+                github_webhooks_bot.run(discord_token)
 
             thread = threading.Thread(target=run_bot, kwargs={"event_name": flask.request.headers["X-Github-Event"], "original_json": flask.request.get_json()})
             thread.start()
             return flask.Response(status=200)
 
-        waitress.serve(app, host="0.0.0.0", port=8080)
+        waitress.serve(app, host="0.0.0.0", port=8081)
 
     thread = threading.Thread(target=thread_webhooks_app, args=())
     thread.start()

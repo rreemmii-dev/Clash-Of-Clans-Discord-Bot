@@ -3,10 +3,9 @@ import logging
 import sqlite3
 import traceback
 
-import coc
 import discord.errors
-import nest_asyncio
 from discord import app_commands
+import nest_asyncio
 
 from bot.apis_clients.discord import Discord_token
 from bot.core.slash_commands.army_link_analyze import army_link_analyze
@@ -38,15 +37,15 @@ from bot.functions import *
 from data.config import Config
 from data.useful import Ids
 
+nest_asyncio.apply()
+
 votes_file = open(f"{Config['secure_folder_path']}votes.json", "r")
 Votes = json.load(votes_file)
-
-nest_asyncio.apply()
 
 if __name__ == "__main__":
     from bot.apis_clients.discord import Clash_info
 
-    connection_modifiable = sqlite3.connect(f"{Config['secure_folder_path']}secure.sqlite")
+    connection_modifiable = sqlite3.connect(f"{Config['secure_folder_path']}secure.db")
     cursor_modifiable = connection_modifiable.cursor()
 
 
@@ -89,10 +88,9 @@ if __name__ == "__main__":
     command_tree = app_commands.CommandTree(Clash_info)
 
     async def on_error(interaction: discord.Interaction, error: discord.app_commands.AppCommandError):
-        if type(error) is discord.app_commands.CommandInvokeError:
-            if type(error.original) is discord.errors.NotFound:
-                if interaction.app_permissions.send_messages:
-                    await interaction.channel.send("The command has expired, please try again\n\n*This message will be deleted in 15 seconds*", delete_after=15)
+        if type(error) is discord.app_commands.CommandInvokeError and type(error.original) is discord.errors.NotFound:
+            if interaction.app_permissions.send_messages:
+                await interaction.channel.send("The command has expired, please try again\n\n*This message will be deleted in 15 seconds*", delete_after=15)
         else:
             print(traceback.format_exc())
         return
@@ -416,11 +414,10 @@ if __name__ == "__main__":
 
     async def sync_commands():
         await command_tree.sync()
-        await command_tree.sync(guild=discord.Object(id=Ids["Test_server"]))
         await command_tree.sync(guild=discord.Object(id=Ids["Bot_creators_only_server"]))
 
     Clash_info.sync_commands = sync_commands
-    # Clash_info.run(Discord_token, log_handler=logging.StreamHandler(), log_level=logging.INFO)
+
     while True:
         try:
             Clash_info.run(Discord_token, log_handler=logging.StreamHandler(), log_level=logging.INFO)

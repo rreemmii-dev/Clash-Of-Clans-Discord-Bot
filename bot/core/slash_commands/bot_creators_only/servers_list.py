@@ -9,7 +9,7 @@ async def servers_list(interaction: discord.Interaction):
     for guild in interaction.client.guilds:
         users = 0
         bots = 0
-        for member in guild.members:
+        for member in await guild.chunk(cache=False):
             if member.bot:
                 bots += 1
             else:

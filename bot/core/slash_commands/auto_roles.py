@@ -7,6 +7,7 @@ from data.views import ComponentView
 
 async def auto_roles_th(interaction: discord.Interaction, channel: discord.TextChannel):
     text = ""
+    text += "Auto-Select to match your account(s) linked by `/link_coc_account`\n"
     for th_level, emoji in Emojis["Th_emojis"].items():
         role = discord.utils.get(interaction.guild.roles, name=f"Town Hall {th_level}")
         if role is None:
@@ -23,6 +24,7 @@ async def auto_roles_th(interaction: discord.Interaction, channel: discord.TextC
 
 async def auto_roles_bh(interaction: discord.Interaction, channel: discord.TextChannel):
     text = ""
+    text += "Auto-Select to match your account(s) linked by `/link_coc_account`\n"
     for bh_level, emoji in Emojis["Bh_emojis"].items():
         role = discord.utils.get(interaction.guild.roles, name=f"Builder Hall {bh_level}")
         if role is None:
@@ -39,6 +41,7 @@ async def auto_roles_bh(interaction: discord.Interaction, channel: discord.TextC
 
 async def auto_roles_leagues(interaction: discord.Interaction, channel: discord.TextChannel):
     text = ""
+    text += "Auto-Select to match your account(s) linked by `/link_coc_account`\n"
     for league, emoji in Emojis["League_emojis"].items():
         role = discord.utils.get(interaction.guild.roles, name=league)
         if role is None:

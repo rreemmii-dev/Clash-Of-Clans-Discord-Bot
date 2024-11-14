@@ -8,14 +8,17 @@ from data.useful import Useful
 
 
 auto_roles_bh = discord.ui.Select(placeholder="Select your builder hall level", min_values=1, max_values=Useful["max_bh_lvl"])
+auto_roles_bh.add_option(label="Auto-Select", value="auto")
 for bh_level, emoji in Emojis["Bh_emojis"].items():
     auto_roles_bh.add_option(label=f"Builder Hall {bh_level}", value=str(bh_level), emoji=emoji)
 
 auto_roles_leagues = discord.ui.Select(placeholder="Select your league", min_values=1, max_values=len(Useful["league_trophies"].keys()))
+auto_roles_leagues.add_option(label="Auto-Select", value="auto")
 for league, emoji in Emojis["League_emojis"].items():
     auto_roles_leagues.add_option(label=league, value=league, emoji=emoji)
 
 auto_roles_th = discord.ui.Select(placeholder="Select your town hall level", min_values=1, max_values=Useful["max_th_lvl"])
+auto_roles_th.add_option(label="Auto-Select", value="auto")
 for th_level, emoji in Emojis["Th_emojis"].items():
     auto_roles_th.add_option(label=f"Town Hall {th_level}", value=str(th_level), emoji=emoji)
 
