@@ -1,5 +1,3 @@
-import asyncio
-
 import discord
 
 from data.config import Config
@@ -11,9 +9,6 @@ Emojis = {}
 
 
 class EmojisBot(discord.AutoShardedClient):
-    emojis = {}
-    emoji_connected = asyncio.Event()
-
     def __init__(self):
         super().__init__(intents=discord.Intents.default())
 
@@ -48,7 +43,7 @@ class EmojisBot(discord.AutoShardedClient):
         guild = self.get_guild(Ids["Emojis_coc_troops_server"])
         emojis["Troop"] = discord.utils.get(guild.emojis, name="TE1")
         troops_emojis = {}
-        emoji_to_name = {"TE1": "Barbarian", "TE2": "Archer", "TE3": "Giant", "TE4": "Goblin", "TE5": "Wall Breaker", "TE6": "Balloon", "TE7": "Wizard", "TE8": "Healer", "TE9": "Dragon", "TE10": "P.E.K.K.A", "TE11": "Baby Dragon", "TE12": "Miner", "TE13": "Electro Dragon", "TE14": "Yeti", "TE15": "Dragon Rider", "TE16": "Electro Titan", "TE17": "Root Rider", "TD1": "Minion", "TD2": "Hog Rider", "TD3": "Valkyrie", "TD4": "Golem", "TD5": "Witch", "TD6": "Lava Hound", "TD7": "Bowler", "TD8": "Ice Golem", "TD9": "Headhunter", "TD10": "Apprentice Warden", "SE1": "Lightning Spell", "SE2": "Healing Spell", "SE3": "Rage Spell", "SE4": "Jump Spell", "SE5": "Freeze Spell", "SE6": "Clone Spell", "SE7": "Invisibility Spell", "SE8": "Recall Spell", "SD1": "Poison Spell", "SD2": "Earthquake Spell", "SD3": "Haste Spell", "SD4": "Skeleton Spell", "SD5": "Bat Spell", "SD6": "Overgrowth Spell"}
+        emoji_to_name = {"TE1": "Barbarian", "TE2": "Archer", "TE3": "Giant", "TE4": "Goblin", "TE5": "Wall Breaker", "TE6": "Balloon", "TE7": "Wizard", "TE8": "Healer", "TE9": "Dragon", "TE10": "P.E.K.K.A", "TE11": "Baby Dragon", "TE12": "Miner", "TE13": "Electro Dragon", "TE14": "Yeti", "TE15": "Dragon Rider", "TE16": "Electro Titan", "TE17": "Root Rider", "TD1": "Minion", "TD2": "Hog Rider", "TD3": "Valkyrie", "TD4": "Golem", "TD5": "Witch", "TD6": "Lava Hound", "TD7": "Bowler", "TD8": "Ice Golem", "TD9": "Headhunter", "TD10": "Apprentice Warden", "TD11": "Druid", "SE1": "Lightning Spell", "SE2": "Healing Spell", "SE3": "Rage Spell", "SE4": "Jump Spell", "SE5": "Freeze Spell", "SE6": "Clone Spell", "SE7": "Invisibility Spell", "SE8": "Recall Spell", "SD1": "Poison Spell", "SD2": "Earthquake Spell", "SD3": "Haste Spell", "SD4": "Skeleton Spell", "SD5": "Bat Spell", "SD6": "Overgrowth Spell"}
         for emoji in guild.emojis:
             troops_emojis[emoji_to_name[emoji.name]] = emoji
         emojis["Troops_emojis"] = troops_emojis
@@ -152,38 +147,14 @@ class EmojisBot(discord.AutoShardedClient):
         emojis["Language"] = discord.utils.get(guild.emojis, name="language")
         emojis["Received"] = discord.utils.get(guild.emojis, name="received")
 
-        self.emojis = emojis
+        global Emojis
+        Emojis = emojis
         await self.close()
-        self.emoji_connected.set()
 
 
 client = EmojisBot()
-loop = asyncio.get_event_loop()
-
-
-async def login():
-    if Config["main_bot"]:
-        discord_token = Login["discord"]["main"]
-    else:
-        discord_token = Login["discord"]["beta"]
-    await client.login(discord_token)
-
-
-loop.run_until_complete(login())
-
-
-async def wrapped_connect():
-    await client.connect()
-    global Emojis
-    Emojis = client.emojis
-
-
-loop.create_task(wrapped_connect())
-
-
-async def check_close():
-    futures = [client.emoji_connected.wait()]
-    await asyncio.wait(futures)
-
-
-loop.run_until_complete(check_close())
+if Config["main_bot"]:
+    discord_token = Login["discord"]["main"]
+else:
+    discord_token = Login["discord"]["beta"]
+client.run(discord_token)
