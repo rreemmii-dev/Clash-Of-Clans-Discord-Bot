@@ -221,7 +221,7 @@ python Clash-Of-Clans-Discord-Bot\main.py
 ├─ Commands.md
 ├─ Emojis.zip
 ├─ FUNDING.yml
-├─ LICENSE
+├─ LICENSE.md
 ├─ PRIVACY.md
 ├─ README.md
 ├─ TERMS.md
@@ -246,9 +246,9 @@ You can support this project by subscribing our [Patreon](https://www.patreon.co
 
 ## License
 
-Distributed under the [BSD 3-Clause License](LICENSE).
+Distributed under the [MIT License](LICENSE.md).
 
-[![GitHub](https://img.shields.io/github/license/rreemmii-dev/Clash-Of-Clans-Discord-Bot?label=License)](LICENSE)
+[![GitHub](https://img.shields.io/github/license/rreemmii-dev/Clash-Of-Clans-Discord-Bot?label=License)](LICENSE.md)
 
 
 ---
