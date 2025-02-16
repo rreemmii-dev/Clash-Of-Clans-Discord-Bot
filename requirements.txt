@@ -1,4 +1,7 @@
-coc.py==3.7.2
+pip==25.0.1
+setuptools==75.8.0
+
+coc.py==3.9.0
 discord.py==2.4.0
 Flask==3.1.0
 Pillow==11.0.0

@@ -13,6 +13,7 @@ async def player_info_embed(interaction: discord.Interaction, tag: str, informat
     if information == "main":
         lvl_barbarian_king = 0
         lvl_archer_queen = 0
+        lvl_minion_prince = 0
         lvl_grand_warden = 0
         lvl_royal_champion = 0
         lvl_battle_machine = 0
@@ -26,6 +27,8 @@ async def player_info_embed(interaction: discord.Interaction, tag: str, informat
                 lvl_barbarian_king = hero.level
             if hero.name == "Archer Queen":
                 lvl_archer_queen = hero.level
+            if hero.name == "Minion Prince":
+                lvl_minion_prince = hero.level
             if hero.name == "Grand Warden":
                 lvl_grand_warden = hero.level
             if hero.name == "Royal Champion":
@@ -46,7 +49,7 @@ async def player_info_embed(interaction: discord.Interaction, tag: str, informat
         else:
             player__versus_trophies = 0
             player__best_versus_trophies = 0
-        embed = create_embed(f"Player: {escape_markdown(player.name)} ({player.tag}) (Main information)", f"===== Main Base =====\n{Emojis['Th_emojis'][player.town_hall]} TH {player.town_hall} {weapon} | {trophies_to_league(player.trophies)} {player.trophies} | {trophies_to_league(player.best_trophies)} Best: {player.best_trophies} | {Emojis['Exp']} {player.exp_level}\n{Emojis['Barbarian_king']} {lvl_barbarian_king} | {Emojis['Archer_queen']} {lvl_archer_queen} | {Emojis['Grand_warden']} {lvl_grand_warden} | {Emojis['Royal_champion']} {lvl_royal_champion}\n{Emojis['Members']} Clan: {clan}\n{Emojis['Star']} War stars earned: {player.war_stars}\n{Emojis['Capital_gold']} Capital Gold contributed: {player.get_achievement('Most Valuable Clanmate').value: ,}\n{Emojis['Donations']} Troops donated: {player.donations}\n{Emojis['Received']} Troops received: {player.received}\n:crossed_swords: Attacks won: {player.attack_wins}\n:shield: Defenses won: {player.defense_wins}\n\n===== Builder Base =====\n{Emojis['Bh_emojis'][player.builder_hall] if player.builder_hall else Emojis['Bh_emojis'][1]} BH {player.builder_hall if player.builder_hall else 1} | {builder_trophies_to_league(player__versus_trophies)} {player__versus_trophies} | {builder_trophies_to_league(player__best_versus_trophies)} Best: {player__best_versus_trophies} | {Emojis['Battle_machine']} {lvl_battle_machine} | {Emojis['Battle_copter']} {lvl_battle_copter}\n\n[Open in Clash of Clans]({player.share_link})", interaction.guild.me.color, f"player_info|{interaction.user.id}", interaction.guild.me.display_avatar.url)
+        embed = create_embed(f"Player: {escape_markdown(player.name)} ({player.tag}) (Main information)", f"===== Main Base =====\n{Emojis['Th_emojis'][player.town_hall]} TH {player.town_hall} {weapon} | {trophies_to_league(player.trophies)} {player.trophies} | {trophies_to_league(player.best_trophies)} Best: {player.best_trophies} | {Emojis['Exp']} {player.exp_level}\n{Emojis['Barbarian_king']} {lvl_barbarian_king} | {Emojis['Archer_queen']} {lvl_archer_queen} | {Emojis['Minion_prince']} {lvl_minion_prince} | {Emojis['Grand_warden']} {lvl_grand_warden} | {Emojis['Royal_champion']} {lvl_royal_champion}\n{Emojis['Members']} Clan: {clan}\n{Emojis['Star']} War stars earned: {player.war_stars}\n{Emojis['Capital_gold']} Capital Gold contributed: {player.get_achievement('Most Valuable Clanmate').value: ,}\n{Emojis['Donations']} Troops donated: {player.donations}\n{Emojis['Received']} Troops received: {player.received}\n:crossed_swords: Attacks won: {player.attack_wins}\n:shield: Defenses won: {player.defense_wins}\n\n===== Builder Base =====\n{Emojis['Bh_emojis'][player.builder_hall] if player.builder_hall else Emojis['Bh_emojis'][1]} BH {player.builder_hall if player.builder_hall else 1} | {builder_trophies_to_league(player__versus_trophies)} {player__versus_trophies} | {builder_trophies_to_league(player__best_versus_trophies)} Best: {player__best_versus_trophies} | {Emojis['Battle_machine']} {lvl_battle_machine} | {Emojis['Battle_copter']} {lvl_battle_copter}\n\n[Open in Clash of Clans]({player.share_link})", interaction.guild.me.color, f"player_info|{interaction.user.id}", interaction.guild.me.display_avatar.url)
 
     elif information == "troops":
         troops = {}
