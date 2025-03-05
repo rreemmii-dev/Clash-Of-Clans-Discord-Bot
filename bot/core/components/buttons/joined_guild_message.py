@@ -8,7 +8,7 @@ async def joined_guild_message(interaction: discord.Interaction):
         channel = interaction.message.channel
         if interaction.permissions.manage_webhooks:
             if interaction.app_permissions.manage_webhooks:
-                news = interaction.client.get_guild(Ids["Support_server"]).get_channel(Ids["News_channel"])
+                news = interaction.client.get_channel(Ids["news_channel"])
                 await news.follow(destination=channel)
                 await channel.send("Done!", delete_after=15)
             else:

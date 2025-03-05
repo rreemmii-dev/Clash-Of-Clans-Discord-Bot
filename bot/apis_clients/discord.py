@@ -12,7 +12,7 @@ Clash_info = Bot(intents=intents)
 
 if Config["main_bot"]:
     Discord_token = Login["discord"]["main"]
-    Clash_info.id = Ids["Bot"]
+    Clash_info.id = Ids["bot"]
 else:
     Discord_token = Login["discord"]["beta"]
-    Clash_info.id = Ids["Bot_beta"]
+    Clash_info.id = Ids["bot_beta"]

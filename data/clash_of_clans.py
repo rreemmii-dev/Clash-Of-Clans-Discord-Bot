@@ -3,7 +3,7 @@ import sqlite3
 from data.useful import Useful
 
 
-connection = sqlite3.connect("data/data_source/clash_of_clans.db")
+connection = sqlite3.connect("data/data_source/clash_of_clans.sqlite")
 connection.row_factory = sqlite3.Row
 cursor = connection.cursor()
 

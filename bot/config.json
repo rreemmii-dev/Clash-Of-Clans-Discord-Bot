@@ -1,11 +1,7 @@
 {
-    "__Comment": "Check the README.md file to get help to fill in this file, in the Installation part.",
+    "__comment": "Check the README.md file to get help to fill in this file, in the Installation part.",
     
     "secure_folder_path": "../Secure Folder/",
 
-    "main_bot": true,
-
-    "These services are optional. You can whether enable or disable them": "Put true to enable them, or false to disable them",
-    "top_gg": true,
-    "top_gg_webhooks": true
+    "main_bot": true
 }

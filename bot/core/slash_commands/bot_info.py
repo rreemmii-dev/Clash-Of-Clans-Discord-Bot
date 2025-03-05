@@ -14,9 +14,9 @@ async def bot_info(interaction: discord.Interaction):
             text_permissions += "\n" + perm
     text_permissions += "\nSo please grant them to the bot."
     if text_permissions == ":warning: The bot needs the permissions: " + "\nSo please grant them to the bot.":
-        text_permissions = f"{Emojis['Yes']} The bot has all required permissions !"
-    text_servers_number = f"{Emojis['Discord']} The bot is on {len(Clash_info.guilds)} servers !"
-    text_created = f"{Emojis['Calendar']} The bot was created the 2020-04-28, and certified the 2020-09-23."
+        text_permissions = f"{Emojis['yes']} The bot has all required permissions !"
+    text_servers_number = f"{Emojis['discord']} The bot is on {len(Clash_info.guilds)} servers !"
+    text_created = f"{Emojis['calendar']} The bot was created the 2020-04-28, and certified the 2020-09-23."
     embed = create_embed("Clash INFO", f"{text_permissions}\n{text_servers_number}\n{text_created}", interaction.guild.me.color, "", interaction.guild.me.display_avatar.url)
     await interaction.response.send_message(embed=embed)
     return

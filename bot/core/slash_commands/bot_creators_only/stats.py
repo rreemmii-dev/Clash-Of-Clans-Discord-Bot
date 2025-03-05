@@ -7,7 +7,7 @@ from data.config import Config
 
 
 async def stats(interaction: discord.Interaction):
-    connection = sqlite3.connect(Config["secure_folder_path"] + "secure.db")
+    connection = sqlite3.connect(Config["secure_folder_path"] + "secure.sqlite")
     cursor = connection.cursor()
     cursor.execute("SELECT COUNT(*) FROM bot_usage")
     nb_monthly_users = cursor.fetchone()[0]

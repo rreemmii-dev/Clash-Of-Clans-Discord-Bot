@@ -9,7 +9,7 @@ async def credits(interaction: discord.Interaction):
     text = ""
 
     text += "**Bot creators:**\n"
-    for creator_id in Ids["Creators"]:
+    for creator_id in Ids["creators"]:
         text += f"<@{creator_id}>\n"
 
     text += "\n\n**Python libraries used:**\n"
@@ -20,7 +20,7 @@ async def credits(interaction: discord.Interaction):
     text += "\nPlatinum:\n*Nobody*\n"
     text += "\nGold:\n*Nobody*\n"
     text += "\nBronze:\n*Nobody*\n"
-    text += f"\nIf you want to join them, please consider subscribing to our [{Emojis['Patreon']} Patreon](https://www.patreon.com/clash_info)"
+    text += f"\nIf you want to join them, please consider subscribing to our [{Emojis['patreon']} patreon](https://www.patreon.com/clash_info)"
 
     embed = create_embed("Credits", text, interaction.guild.me.color, "", interaction.guild.me.display_avatar.url)
     await interaction.response.send_message(embed=embed)

@@ -18,7 +18,7 @@ async def user_info(interaction: discord.Interaction, user: discord.User):
                 accounts_linked += f"{k}: {escape_markdown(', '.join(v))}\n"
     else:
         accounts_linked = "None\n"
-    embed = create_embed(f"{escape_markdown(user.name)} ({escape_markdown(user.global_name)})", f"{Emojis['Discord']} Discord account creation: **{user.created_at.date().isoformat()}**\n{Emojis['Invite']} Server join: **{user.joined_at.date().isoformat()}**.\n\n{Emojis['Member']} **Accounts linked:**\n{accounts_linked}", user.color, "", interaction.guild.me.display_avatar.url)
+    embed = create_embed(f"{escape_markdown(user.name)} ({escape_markdown(user.global_name)})", f"{Emojis['discord']} Discord account creation: **{user.created_at.date().isoformat()}**\n{Emojis['invite']} Server join: **{user.joined_at.date().isoformat()}**.\n\n{Emojis['member']} **Accounts linked:**\n{accounts_linked}", user.color, "", interaction.guild.me.display_avatar.url)
     embed.set_thumbnail(url=user.display_avatar.url)
     await interaction.response.send_message(embed=embed)
     return

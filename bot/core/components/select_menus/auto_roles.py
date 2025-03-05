@@ -142,9 +142,9 @@ async def auto_roles_leagues(interaction: discord.Interaction):
                 return
             else:
                 await interaction.user.add_roles(role)
-    removed_roles.sort(key=lambda x: list(Emojis["League_emojis"].keys()).index(x))
+    removed_roles.sort(key=lambda x: list(Emojis["league_emojis"].keys()).index(x))
     removed_roles_str = ', '.join(removed_roles)
-    added_roles.sort(key=lambda x: list(Emojis["League_emojis"].keys()).index(x))
+    added_roles.sort(key=lambda x: list(Emojis["league_emojis"].keys()).index(x))
     added_roles_str = ', '.join(added_roles)
     await interaction.response.send_message(f"Roles removed: {removed_roles_str}\nRoles added: {added_roles_str}", ephemeral=True)
     return

@@ -18,7 +18,7 @@ async def clan_members(interaction: discord.Interaction, tag: str):
     embeds = []
     async for member in clan.get_detailed_members():
         rank += 1
-        text += f"{cardinal_to_ordinal_number(rank)} | {trophies_to_league(member.trophies)} {member.trophies} | {Emojis['Th_emojis'][member.town_hall]} | {Emojis['Exp']} {member.exp_level} | {escape_markdown(member.name)}: {member.tag}\n"
+        text += f"{cardinal_to_ordinal_number(rank)} | {trophies_to_league(member.trophies)} {member.trophies} | {Emojis['th_emojis'][member.town_hall]} | {Emojis['exp']} {member.exp_level} | {escape_markdown(member.name)}: {member.tag}\n"
         x += 1
         if x == 25:
             embed = create_embed(f"Clan members: {escape_markdown(clan.name)} ({clan.tag})", f"Members list: \n{text}", interaction.guild.me.color, "", interaction.guild.me.display_avatar.url)

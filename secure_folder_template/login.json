@@ -1,5 +1,5 @@
 {
-    "__Comment": "Check the README.md file to get help to fill in this file, in the Installation part.",
+    "__comment": "Check the README.md file to get help to fill in this file, in the Installation part.",
     
     "discord": {
         "main": "",
@@ -14,9 +14,5 @@
             "email": "",
             "password": ""
         }
-    },
-    "top_gg": {
-        "token": "",
-        "authorization": ""
     }
 }

@@ -1,39 +1,23 @@
 {
-    "__Comment": "Check the README.md file to get help to fill in this file, in the Installation part.",
+    "__comment": "Check the README.md file to get help to fill in this file, in the Installation part.",
     
     "USERS": "USERS",
-    "Creators": [
+    "creators": [
         490190727612071939,
         536666565035294730
     ],
-    "Bot": 704688212832026724,
-    "Bot_beta": 710119855348645888,
+    "bot": 704688212832026724,
+    "bot_beta": 710119855348645888,
     
     "SERVERS": "SERVERS",
-    "Support_server": 719537805604290650,
-    "Bot_creators_only_server": 808814347224481863,
-    "Emojis_coc_players_related_server": 696344010905747487,
-    "Emojis_coc_troops_server": 716259214279966770,
-    "Emojis_coc_super_troops_server": 1188130049438789753,
-    "Emojis_coc_heroes_server": 1033086760437170278,
-    "Emojis_coc_clans_related_server": 932354828154331226,
-    "Emojis_coc_remains_server": 870305165180305408,
-    "Emojis_discord_main_server": 714841480602320958,
-    "Emojis_general_remains_server": 836587468144509009,
-    
-    "ROLES": "ROLES",
-    "Member_role": 719548456674394172,
+    "bot_creators_only_server": 808814347224481863,
 
     "CHANNELS": "CHANNELS",
-    "Weekly_stats_channel": 785956772568367144,
-    "Monthly_stats_channel": 869658106701959258,
-    "News_channel": 741278417130881024,
-    "Rules_channel": 719579241364193331,
-    "Status_channel": 1262745562093064263,
-    "Guilds_bot_log_channel": 722423315909836860,
-    "Dm_bot_log_channel": 748509142578233364,
-    "Votes_channel": 793853230476034078,
-    "Welcome_channel": 722849076416217161,
-    "Secure_folder_backup_channel": 1262746235543228456,
-    "Events_github_channel": 837339878869565460
+    "weekly_stats_channel": 785956772568367144,
+    "monthly_stats_channel": 869658106701959258,
+    "news_channel": 741278417130881024,
+    "status_channel": 1262745562093064263,
+    "guilds_bot_log_channel": 722423315909836860,
+    "dm_bot_log_channel": 748509142578233364,
+    "secure_folder_backup_channel": 1262746235543228456
 }
