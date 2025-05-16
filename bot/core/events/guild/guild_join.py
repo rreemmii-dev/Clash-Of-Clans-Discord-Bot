@@ -35,7 +35,7 @@ async def guild_join(self: discord.AutoShardedClient, guild: discord.Guild):
                 channel = await guild.create_text_channel("clash-info-news", overwrites=overwrite)
                 channel_created = True
     if channel_created:
-        embed = create_embed("Thanks for using this bot on your server !", f"Hello\n\nIf you want to receive news about the bot, please hit the button {Emojis['news']} bellow. If you want to delete this channel, please hit the button {Emojis['Delete']} bellow.\n\nYou can see all useful links in the bot About Me section.", 0x00ffff, "joined_guild_message", guild.me.display_avatar.url)
+        embed = create_embed("Thanks for using this bot on your server !", f"Hello\n\nIf you want to receive news about the bot, please hit the button {Emojis['news']} bellow. If you want to delete this channel, please hit the button {Emojis['delete']} bellow.\n\nYou can see all useful links in the bot About Me section.", 0x00ffff, "joined_guild_message", guild.me.display_avatar.url)
         await channel.send(embed=embed, view=ComponentView("joined_guild_message"))
         await channel.send("https://discord.gg/KQmstPw")
     return

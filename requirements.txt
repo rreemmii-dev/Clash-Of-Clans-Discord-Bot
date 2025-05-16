@@ -1,11 +1,11 @@
-pip==25.0.1
-setuptools==75.8.0
+pip==25.1.1
+setuptools==80.7.1
 
-coc.py==3.9.0
+coc.py==3.9.1
 orjson  # Required for coc.py v3.9.0, but not installed...
-discord.py==2.5.0
-Flask==3.1.0
-Pillow==11.0.0
-waitress==3.0.1
+discord.py==2.5.2
+Flask==3.1.1
+Pillow==11.2.1
+waitress==3.0.2
 requests==2.32.3
 nest_asyncio==1.6.0

@@ -181,7 +181,6 @@ Here is the whole directory tree:
 ├─ PRIVACY.md
 ├─ README.md
 ├─ TERMS.md
-├─ ghost_bot.py
 ├─ main.py
 └─ requirements.txt
 ```
