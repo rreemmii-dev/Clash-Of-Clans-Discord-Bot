@@ -5,8 +5,7 @@
 [![GitHub Repo stars](https://img.shields.io/github/stars/rreemmii-dev/Clash-Of-Clans-Discord-Bot?label=Stars)](https://github.com/rreemmii-dev/Clash-Of-Clans-Discord-Bot/stargazers)
 [![GitHub contributors](https://img.shields.io/github/contributors/rreemmii-dev/Clash-Of-Clans-Discord-Bot?label=Contributors)](https://github.com/rreemmii-dev/Clash-Of-Clans-Discord-Bot/graphs/contributors)
 
-**This project is a Discord Bot about the game Clash of Clans. It uses
-the [discord.py](https://github.com/Rapptz/discord.py) and [coc.py](https://github.com/mathsman5133/coc.py) libraries.**
+**A Discord Bot about the game Clash of Clans, using the [discord.py](https://github.com/Rapptz/discord.py) and [coc.py](https://github.com/mathsman5133/coc.py) libraries.**
 
 To test the bot, please [add it to your server](https://rreemmii-dev.github.io/clash-info/invite) or join
 the [support server](https://discord.gg/KQmstPw).
@@ -19,6 +18,7 @@ To ask for help, please join the [support server](https://discord.gg/KQmstPw).
 - [Run](#run)
 - [Features](#features)
 - [Support](#support)
+- [Contribute](#contribute)
 - [License](#license)
 
 ## Installation + Setup
@@ -165,16 +165,13 @@ Here is the whole directory tree:
 |  ├─ secure_folder.py
 |  ├─ useful.py
 |  └─ views.py
-├─ resources/
-|  ├─ supercell_magic_webfont.ttf
-|  └─ welcome.png
 ├─ secure_folder_template/
 |  ├─ linked_accounts.json
 |  ├─ login.json
 |  ├─ secure.sqlite
 |  └─ votes.json
-├─ CODE_OF_CONDUCT.md
 ├─ Commands.md
+├─ CONTRIBUTING.md
 ├─ Emojis.zip
 ├─ FUNDING.yml
 ├─ LICENSE.md
@@ -188,6 +185,10 @@ Here is the whole directory tree:
 ## Support
 
 You can support this project by subscribing our [Patreon](https://www.patreon.com/clash_info)
+
+## Contribute
+
+You can help this project by contributing to it. See [CONTRIBUTING.md](CONTRIBUTING.md) for more information.
 
 ## License
 
