@@ -115,7 +115,8 @@ async def auto_roles_leagues(interaction: discord.Interaction):
                 if k == "Clash of Clans":
                     for tag in v:
                         player = await Clash_of_clans.get_player(tag)
-                        league = f"{player.league.name} League"
+                        league_base_name = player.league.name.split(" ")[0]
+                        league = f"{league_base_name} League"
                         if league not in chosen:
                             chosen.append(league)
     roles_to_remove = [role_name for role_name in roles_list if role_name not in chosen]

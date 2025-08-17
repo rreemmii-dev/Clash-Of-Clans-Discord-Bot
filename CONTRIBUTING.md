@@ -7,5 +7,8 @@ If there is a Clash of Clans update I haven't added yet, please do a push reques
 ### New buildings
 * `data/data_source/clash_of_clans.db`: Add a line in the database for the new building and fill in values
 
+### New buildings levels
+* `data/data_source/clash_of_clans.db`: Edit values in the database
+
 ### New troops
 * `bot/emojis.py`: Add the new troop in the `emoji_to_name` variable

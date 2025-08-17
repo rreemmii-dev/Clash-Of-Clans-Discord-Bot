@@ -55,12 +55,20 @@ async def player_info_embed(interaction: discord.Interaction, tag: str, informat
         troops = {}
         for troop in player.home_troops:
             if not troop.is_super_troop:
+                if troop.name in ["Super Yeti", "Furnace", "Sneezy"]:  # TODO: coc.py error
+                    continue
                 troops[troop.name] = {"name": troop.name, "player": troop.level, "max for the th": troop.get_max_level_for_townhall(player.town_hall), "max for the game": troop.max_level}
         for troop in player.spells:
+            if troop.name in ["Ice Block Spell"]:  # TODO: coc.py error
+                continue
             troops[troop.name] = {"name": troop.name, "player": troop.level, "max for the th": troop.get_max_level_for_townhall(player.town_hall), "max for the game": troop.max_level}
         for troop in player.siege_machines:
+            if troop.name in [""]:  # TODO: coc.py error
+                continue
             troops[troop.name] = {"name": troop.name, "player": troop.level, "max for the th": troop.get_max_level_for_townhall(player.town_hall), "max for the game": troop.max_level}
         for troop in player.pets:
+            if troop.name in [""]:  # TODO: coc.py error
+                continue
             troops[troop.name] = {"name": troop.name, "player": troop.level, "max for the th": troop.get_max_level_for_townhall(player.town_hall), "max for the game": troop.max_level}
         text = "*level | max level (TH) | max level (all the game)*"
 
