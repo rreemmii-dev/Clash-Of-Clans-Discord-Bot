@@ -1,14 +1,13 @@
 # Clash-Of-Clans-Discord-Bot
 
 [![Discord](https://img.shields.io/discord/719537805604290650?color=%230000ff&label=Discord&logo=https%3A%2F%2Fdiscord.com%2Fassets%2F2c21aeda16de354ba5334551a883b481.png&logoColor=%2300000000)](https://discord.gg/KQmstPw)
-[![Python version](https://img.shields.io/badge/Python-%E2%89%A5%203.8-blue)](https://www.python.org/downloads/)
+[![Python version](https://img.shields.io/badge/Python-%E2%89%A5%203.11-blue)](https://www.python.org/downloads/)
 [![GitHub Repo stars](https://img.shields.io/github/stars/rreemmii-dev/Clash-Of-Clans-Discord-Bot?label=Stars)](https://github.com/rreemmii-dev/Clash-Of-Clans-Discord-Bot/stargazers)
 [![GitHub contributors](https://img.shields.io/github/contributors/rreemmii-dev/Clash-Of-Clans-Discord-Bot?label=Contributors)](https://github.com/rreemmii-dev/Clash-Of-Clans-Discord-Bot/graphs/contributors)
 
 **A Discord Bot about the game Clash of Clans, using the [discord.py](https://github.com/Rapptz/discord.py) and [coc.py](https://github.com/mathsman5133/coc.py) libraries.**
 
-To test the bot, please [add it to your server](https://rreemmii-dev.github.io/clash-info/invite) or join
-the [support server](https://discord.gg/KQmstPw).
+To test the bot, please [add it to your server](https://rreemmii-dev.github.io/clash-info/invite) or join the [support server](https://discord.gg/KQmstPw).
 
 To ask for help, please join the [support server](https://discord.gg/KQmstPw).
 
@@ -17,7 +16,6 @@ To ask for help, please join the [support server](https://discord.gg/KQmstPw).
 - [Installation + Setup](#installation--setup)
 - [Run](#run)
 - [Features](#features)
-- [Support](#support)
 - [Contribute](#contribute)
 - [License](#license)
 
@@ -36,12 +34,10 @@ pip install -r Clash-Of-Clans-Discord-Bot\requirements.txt
 ### Discord bot creation and setup
 
 1) Create a bot following [these steps](https://discordpy.readthedocs.io/en/latest/discord.html).
-2) Invite the bot to your server with the link provided
-   by https://discord.com/developers/applications/[your_bot_id]/installation. Add the `bot` and `applications.commands`
-   scopes, and the required permissions given [here](data/data_source/useful.json) (or the `administrator` permission).
+2) Invite the bot to your server with the link provided by https://discord.com/developers/applications/[your_bot_id]/installation.
+   Add the `bot` and `applications.commands` scopes, and the required permissions given [here](data/data_source/useful.json) (or the `administrator` permission).
 3) Enable [member privileged intent](https://discordpy.readthedocs.io/en/latest/intents.html#privileged-intents).
-4) Unzip [Emojis.zip](Emojis.zip), and add all emojis to your
-   bot (https://discord.com/developers/applications/[your_bot_id]/emojis).
+4) Unzip [Emojis.zip](Emojis.zip), and add all emojis to your bot (https://discord.com/developers/applications/[your_bot_id]/emojis).
 
 ### Config files setup
 
@@ -91,14 +87,18 @@ Fill in the [Secure Folder/login.json](secure_folder_template/login.json) file w
 python Clash-Of-Clans-Discord-Bot\main.py
 ```
 
-Please wait that "The bot is ready to be used!" is printed before using the bot. Else, things like slash commands could
-not work.
+Please wait that "The bot is ready to be used!" is printed before using the bot.
+Else, things like slash commands could not work.
 
 ## Features
 
 You can see [here](Commands.md) the list of available commands.
 
-Here is the whole directory tree:
+## Contribute
+
+You can help this project by contributing to it. See [CONTRIBUTING.md](CONTRIBUTING.md) for more information.
+
+By the way, here is the whole directory tree:
 
 ```
 ├─ bot/
@@ -173,7 +173,6 @@ Here is the whole directory tree:
 ├─ Commands.md
 ├─ CONTRIBUTING.md
 ├─ Emojis.zip
-├─ FUNDING.yml
 ├─ LICENSE.md
 ├─ PRIVACY.md
 ├─ README.md
@@ -182,21 +181,12 @@ Here is the whole directory tree:
 └─ requirements.txt
 ```
 
-## Support
-
-You can support this project by subscribing our [Patreon](https://www.patreon.com/clash_info)
-
-## Contribute
-
-You can help this project by contributing to it. See [CONTRIBUTING.md](CONTRIBUTING.md) for more information.
-
 ## License
 
 Distributed under the [MIT License](LICENSE.md).
 
 [![GitHub](https://img.shields.io/github/license/rreemmii-dev/Clash-Of-Clans-Discord-Bot?label=License)](LICENSE.md)
 
-
 ---
 
-Discord: [RREEMMII#7368](https://discord.com/channels/@me/490190727612071939)
+Discord username: [rreemmii](https://discord.com/channels/@me/490190727612071939)

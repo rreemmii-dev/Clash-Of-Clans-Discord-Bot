@@ -123,7 +123,6 @@ class EmojisBot(discord.AutoShardedClient):
 
         emojis["clash_info"] = discord.utils.get(emojis_list, name="Clash_INFO")
         emojis["github"] = discord.utils.get(emojis_list, name="github")
-        emojis["patreon"] = discord.utils.get(emojis_list, name="patreon")
 
         emojis["yes"] = discord.utils.get(emojis_list, name="yes")
         emojis["no"] = discord.utils.get(emojis_list, name="no")

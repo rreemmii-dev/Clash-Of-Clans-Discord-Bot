@@ -407,6 +407,6 @@ Clash_info.sync_commands = sync_commands
 
 while True:
     try:
-        Clash_info.run(Discord_token, log_handler=logging.StreamHandler(), log_level=logging.INFO)
+        Clash_info.run(Discord_token)
     except Exception as e:
         print(f"\n\nError : {e}\n\n")
