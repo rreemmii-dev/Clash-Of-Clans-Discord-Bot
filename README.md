@@ -7,6 +7,10 @@
 
 **A Discord Bot about the game Clash of Clans, using the [discord.py](https://github.com/Rapptz/discord.py) and [coc.py](https://github.com/mathsman5133/coc.py) libraries.**
 
+_**Unfortunately, the bot has been shutdown after running for more than 5 years (2020-2025), reaching 3,000+ servers.**_
+
+_**You can still download the code and run it yourself, but it may not support the latest Clash Of Clans updates.**_
+
 To test the bot, please [add it to your server](https://rreemmii-dev.github.io/clash-info/invite) or join the [support server](https://discord.gg/KQmstPw).
 
 To ask for help, please join the [support server](https://discord.gg/KQmstPw).
@@ -174,11 +178,11 @@ By the way, here is the whole directory tree:
 ├─ CONTRIBUTING.md
 ├─ Emojis.zip
 ├─ LICENSE.md
+├─ main.py
 ├─ PRIVACY.md
 ├─ README.md
-├─ TERMS.md
-├─ main.py
-└─ requirements.txt
+├─ requirements.txt
+└─ TERMS.md
 ```
 
 ## License
