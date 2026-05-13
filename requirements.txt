@@ -1,5 +1,5 @@
-pip==25.2
-setuptools==80.9.0
+pip
+setuptools
 
 coc.py==3.9.1
 discord.py==2.6.2
